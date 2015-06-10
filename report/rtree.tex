@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%% file participatory-gis.tex %%%%%%%%%%%%%
+%   Partizipative GIS - Anwendung im globalen Süden   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\graphicspath{ {./img/} }           % change graphics include path to ./img/
+
+\usepackage[english, ngerman]{babel}
+\usepackage[utf8]{inputenc}			    % for working umlaute
+\usepackage[T1]{fontenc}            % wichtig für Trennung von Wörtern mit Umlauten
+\usepackage{microtype}						  % verbesserter Randausgleich
+\usepackage{pdfpages}
+
+\usepackage{quoting}
+\usepackage[
+	babel,
+	german=quotes,
+	threshold=2,										% two lines ore more triggers a blockquote
+	thresholdtype=lines
+]{csquotes}
+% \SetBlockEnvironment{quoting}			% real block quotes
+\renewcommand\mkblockquote[4]{\leavevmode\llap{„}#1#2#3“#4}			% block quotes with german quotation marks
+
+% quellen mangement
+\usepackage[
+	backend=biber,
+	natbib=true,								% damit \citep{} etc. verwendet werden können
+	style=authoryear-icomp,    	% Zitierstil
+	isbn=false,                	% ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
+	pagetracker=true,          	% ebd. bei wiederholten Angaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
+	maxbibnames=10,            	% maximale Namen, die im Literaturverzeichnis angezeigt werden
+	maxcitenames=2,            	% maximale Namen, die im Text angezeigt werden, ab 2 wird u.a. nach den ersten Autor angezeigt
+	autocite=inline,           	% regelt Aussehen für \autocite (inline=\parancite)
+	block=space,               	% kleiner horizontaler Platz zwischen den Feldern
+	backref=true,              	% Seiten anzeigen, auf denen die Referenz vorkommt
+	backrefstyle=three+,       	% fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
+	date=short									% Datumsformat
+]{biblatex}
+\setlength{\bibitemsep}{0.6em}     	% Abstand zwischen den Literaturangaben
+\setlength{\bibhang}{2em}        		% Einzug nach jeweils erster Zeile
+% \renewcommand{\postnotedelim}{\addcolon\addspace}			% Doppelpunkt statt Komma vor der Seitenangabe in der Zitierung
+% \DeclareFieldFormat{postnote}{#1}											% Kein einleitendes «S.» vor der Seitenangabe in der Zitierung
+
+\bibliography{_literatur}
+
+\usepackage[]{acronym}													% für Abkürzungen
+
+\usepackage{hyperref}														% for hyperlink references
+\usepackage[ngerman, nameinlink]{cleveref}			% for naming references
+
+\addto\extrasngerman{\def\figureautorefname{Abb.}}		% changes figure reference text to "Abb."
+
+\usepackage{float}							        							% for use of "H" specifier in floats
+\usepackage[section]{placeins}          							% keep floats (images, tables, ..) in their place
+
+% change symbols for unordered lists (itemize)
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+
+
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{Erweiterungen des R-Baums für räumliche Datenbankanfragen}
+
+\subtitle{Der R*-Baum}
+
+% a short form should be given in case it is too long for the running head
+% \titlerunning{Verschiebungsalgorithmen für Kartenbeschriftungen}
+
+\author{Patrick Schulz \& Simon Hötten}
+
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+\institute{Seminar Geodatenbanken \\ Dozent: Prof. Dr.-Ing. Jan-Henrik Haunert \\ Institut für Geoinformatik und Fernerkundung\\ Universität Osnabrück \\ Sommersemester 2015}
+
+%\toctitle{Titel vom Inhaltsverzeichnis}
+%\tocauthor{Authors' Instructions}
+\maketitle
+
+
+% Zusammenfassung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{abstract}
+
+\keywords{Geodatenbanken, R*, Spatial Access}
+% \end{abstract}
+
+
+% Inhaltsverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\newpage
+
+
+% Dokument
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Einleitung} % (fold)
+\label{sec:intro}
+
+
+
+
+
+% Anhang
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{appendix}
+
+	\section*{Anhang}
+	\addcontentsline{toc}{section}{Anhang}
+
+	\section*{Abkürzungsverzeichnis} % (fold)
+	\label{sub:abbreviations}
+
+		\begin{acronym}[length]
+	    \acro{SAM}{Spatial access methods}
+	    \acro{PAM}{Point access methods}
+	  \end{acronym}
+
+	% section abbreviations (end)
+
+	% Abbildungsverzeichnis
+	% \listoffigures
+
+	% Literaturverzeichnis
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\nocite{*}							% include all bibtex entries from bibliography, even if they are not citied in the document
+
+	\printbibliography
+
+\end{appendix}
+
+\end{document}

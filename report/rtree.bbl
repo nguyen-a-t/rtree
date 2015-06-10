@@ -1,0 +1,61 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{nyt}{nyt}
+    \entry{Beckmann:1990:RER:93597.98741}{inproceedings}{}
+      \name{labelname}{4}{}{%
+        {{uniquename=0,hash=0e28dbf7665b7e368bbb69ec0d50262e}{Beckmann}{B\bibinitperiod}{Norbert}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9559fe65ed2c0877cf14a66fe1f8e9b3}{Kriegel}{K\bibinitperiod}{Hans-Peter}{H\bibinithyphendelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=967489889af05cbfc683b47bd544422d}{Schneider}{S\bibinitperiod}{Ralf}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4a8685520eb548abf6eb6a626fac5ea1}{Seeger}{S\bibinitperiod}{Bernhard}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=0e28dbf7665b7e368bbb69ec0d50262e}{Beckmann}{B\bibinitperiod}{Norbert}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9559fe65ed2c0877cf14a66fe1f8e9b3}{Kriegel}{K\bibinitperiod}{Hans-Peter}{H\bibinithyphendelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=967489889af05cbfc683b47bd544422d}{Schneider}{S\bibinitperiod}{Ralf}{R\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4a8685520eb548abf6eb6a626fac5ea1}{Seeger}{S\bibinitperiod}{Bernhard}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Atlantic City, New Jersey, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{ae079ff90c7006fbabb37ff17ab9821a}
+      \strng{fullhash}{92833fd4761e401fd77321fc559c3265}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labelyear}{1990}
+      \field{datelabelsource}{}
+      \field{labeltitle}{The R*-tree: An Efficient and Robust Access Method for Points and Rectangles}
+      \field{booktitle}{Proceedings of the 1990 ACM SIGMOD International Conference on Management of Data}
+      \field{isbn}{0-89791-365-5}
+      \field{series}{SIGMOD '90}
+      \field{title}{The R*-tree: An Efficient and Robust Access Method for Points and Rectangles}
+      \field{year}{1990}
+      \field{pages}{322\bibrangedash 331}
+      \verb{doi}
+      \verb 10.1145/93597.98741
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

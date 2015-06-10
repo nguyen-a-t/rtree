@@ -1,0 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {ngerman}
+\defcounter {refsection}{0}\relax 
+\contentsline {title}{Erweiterungen des R-Baums f\IeC {\"u}r r\IeC {\"a}umliche Datenbankanfragen}{1}{chapter.1}
+\defcounter {refsection}{0}\relax 
+\authcount {1}
+\defcounter {refsection}{0}\relax 
+\contentsline {author}{Patrick Schulz \& Simon H\IeC {\"o}tten}{1}{chapter.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Anhang}{4}{section*.3}

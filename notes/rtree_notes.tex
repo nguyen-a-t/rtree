@@ -1,0 +1,61 @@
+%%%%%%%%%% file participatory-gis_notizen.tex %%%%%%%%%
+%   Partizipative GIS - Anwendung im globalen Süden   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[14pt,a5paper,landscape]{handout}
+
+\usepackage[a5paper,landscape,top=2cm, bottom=2cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+
+\usepackage{hyperref}               % for hyperlink references
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}			    % for working umlaute
+\usepackage[T1]{fontenc}            % wichtig für Trennung von Wörtern mit Umlauten
+\usepackage{microtype}						  % verbesserter Randausgleich
+\usepackage{pdfpages}
+
+\usepackage[babel,german=quotes]{csquotes}
+
+\addto\extrasngerman{\def\figureautorefname{Abb.}}		% changes figure reference text to "Abb."
+
+\usepackage{float}							        							% for use of "H" specifier in floats
+\usepackage[section]{placeins}          							% keep floats (images, tables, ..) in their place
+
+% change symbols for unordered lists (itemize)
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesection}{0.8em}{}
+
+\SetInstructor{Patrick Schulz \& Simon Hötten}
+\SetCourseTitle{Geodatenbanken}
+\SetHandoutTitle{Der R*-Baum}
+\SetSemester{SS 2015}
+\SetDate{02. Juli 2015}
+
+\begin{document}
+
+% Dokument
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Optimierungskriterien} % (fold)
+\label{sec:optimierungskriterien}
+
+\begin{description}
+	\item[Flächenausnutzung maximieren] Verbesserte Performance, weil Entscheidungen auf höheren Ebenen des Baumes getroffen werden können
+	\item[Überlappung minimieren] Reduziert die Anzahl an zu durchsuchenden Teilbäumen
+	\item[Summe der Kantenlänge minimieren] Quadratischere Rechtecke -> verbessertes Packen -> kleinere MBRs
+	\item[Speichernutzung maximieren] Wahrscheinlichkeit für Splits verringern -> flacherer Baum -> schnelleres Traversieren
+\end{description}
+
+% section optimierungskriterien (end)
+
+
+\end{document}

@@ -96,8 +96,8 @@
 
 % Inhaltsverzeichnis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tableofcontents
-\newpage
+% \tableofcontents
+% \newpage
 
 
 % Dokument
@@ -118,14 +118,22 @@
 \section{Optimierungskriterien} % (fold)
 \label{sec:optimierungskriterien}
 
+	Bei dem herkömmlichen R-Baum wird, sowohl beim Hinzufügen neuer Elemente als auch beim Split, lediglich die Fläche der umschließenden Rechtecke minimiert \citep[vgl.][50-51]{Guttman:1984}. Einige der daraus resultierenden Probleme wurden bereits im vorherigen Abschnitt dargelegt.
+	Im Folgenden werden weitere mögliche Optimierungen und ihre Wechselwirkungen aufgeführt.
+
+	\subsection{Flächenausnutzung maximieren} % (fold)
+	\label{sub:flaechenausnutzung}
+
+	Die Fläche, welche von dem umschließenden Rechteck, aber nicht von den in ihm enthaltenen Rechtecken, überdeckt wird, soll minimiert werden. Es soll also möglichst wenig Platz \enquote{verschwendet} werden.
+
+	% subsection flaechenausnutzung (end)
+
+	\subsection{Überlappung minimieren} % (fold)
+	\label{sub:ueberlappung_minimieren}
+
+	Die Überlappung der umschließenden Rechtecke soll minimiert werden.
 	
-
-	\subsection{Flächenausnutzung der MBR minimieren} % (fold)
-	\label{sub:fl_chenausnutzung_der_mbr_minimieren}
-
-
-
-	% subsection fl_chenausnutzung_der_mbr_minimieren (end)
+	% subsection ueberlappung_minimieren (end)
 
 % section optimierungskriterien (end)
 

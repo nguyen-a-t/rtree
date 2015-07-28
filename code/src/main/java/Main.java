@@ -21,8 +21,8 @@ public class Main {
 			 .add(3, rectangle(12, 4, 20, 15))
 			 .add(4, rectangle(20, 46, 24, 61))
 			 .add(2, rectangle(90, 90, 95, 100))
-			 .add(5, rectangle(80, 80, 86, 89))
-			 .add(6, rectangle(40, 40, 60, 66));
+			 .add(5, rectangle(80, 80, 86, 89));
+//			 .add(6, rectangle(40, 40, 60, 66));
 		
 		r.visualize(700,800).save("target/r01.png");
 		

@@ -19,7 +19,7 @@
 
 \refsection{0}
   \sortlist{nyt}{nyt}
-    \entry{Beckmann:1990:RER:93597.98741}{inproceedings}{}
+    \entry{Beckmann:1990}{inproceedings}{}
       \name{labelname}{4}{}{%
         {{uniquename=0,hash=0e28dbf7665b7e368bbb69ec0d50262e}{Beckmann}{B\bibinitperiod}{Norbert}{N\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=9559fe65ed2c0877cf14a66fe1f8e9b3}{Kriegel}{K\bibinitperiod}{Hans-Peter}{H\bibinithyphendelim P\bibinitperiod}{}{}{}{}}%
@@ -53,6 +53,35 @@
       \field{pages}{322\bibrangedash 331}
       \verb{doi}
       \verb 10.1145/93597.98741
+      \endverb
+    \endentry
+    \entry{Guttman:1984}{inproceedings}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=c628fd70edfa0bbd1f1060b9727bb854}{Guttman}{G\bibinitperiod}{Antonin}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=c628fd70edfa0bbd1f1060b9727bb854}{Guttman}{G\bibinitperiod}{Antonin}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{c628fd70edfa0bbd1f1060b9727bb854}
+      \strng{fullhash}{c628fd70edfa0bbd1f1060b9727bb854}
+      \field{sortinit}{G}
+      \field{sortinithash}{480ee01f9ffd559b3258d822f54a8ac2}
+      \field{labelyear}{1984}
+      \field{datelabelsource}{}
+      \field{labeltitle}{R-trees: a dynamic index structure for spatial searching}
+      \field{booktitle}{Proceedings of the 1984 ACM SIGMOD International Conference on Management of Data}
+      \field{series}{SIGMOD '84}
+      \field{title}{R-trees: a dynamic index structure for spatial searching}
+      \field{year}{1984}
+      \field{pages}{47\bibrangedash 57}
+      \verb{doi}
+      \verb 10.1145/602259.602266
       \endverb
     \endentry
   \endsortlist

@@ -1,3 +1,7 @@
 \BOOKMARK [0][-]{chapter.1}{Erweiterungen des R-Baums f\374r r\344umliche Datenbankanfragen}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Einleitung}{chapter.1}% 2
-\BOOKMARK [1][-]{section*.3}{Anhang}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Prinzipien eines R-Baums}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Optimierungskriterien}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Der R*-Baum}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Fazit}{chapter.1}% 6
+\BOOKMARK [1][-]{section*.3}{Anhang}{chapter.1}% 7

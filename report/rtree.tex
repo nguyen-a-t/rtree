@@ -1,6 +1,6 @@
-%%%%%%%%%%%%%% file participatory-gis.tex %%%%%%%%%%%%%
-%   Partizipative GIS - Anwendung im globalen Süden   %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% file rtree.tex %%%%%%%%%%%%%%%%%%%%%%
+% Erweiterungen des R-Baums für räumliche Datenbankanfragen %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \documentclass[runningheads,a4paper]{llncs}
@@ -48,10 +48,10 @@
 
 \bibliography{_literatur}
 
-\usepackage[]{acronym}													% für Abkürzungen
+\usepackage[]{acronym}																% für Abkürzungen
 
-\usepackage{hyperref}														% for hyperlink references
-\usepackage[ngerman, nameinlink]{cleveref}			% for naming references
+\usepackage{hyperref}																	% for hyperlink references
+\usepackage[ngerman, nameinlink]{cleveref}						% for naming references
 
 \addto\extrasngerman{\def\figureautorefname{Abb.}}		% changes figure reference text to "Abb."
 
@@ -102,10 +102,46 @@
 
 % Dokument
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Einleitung} % (fold)
+\section{Motivation} % (fold)
 \label{sec:intro}
 
 
+
+% section intro (end)
+
+\section{Prinzipien eines R-Baums} % (fold)
+\label{sec:prinzipien_eines_r_baums}
+
+
+% section prinzipien_eines_r_baums (end)
+
+\section{Optimierungskriterien} % (fold)
+\label{sec:optimierungskriterien}
+
+	
+
+	\subsection{Flächenausnutzung der MBR minimieren} % (fold)
+	\label{sub:fl_chenausnutzung_der_mbr_minimieren}
+
+
+
+	% subsection fl_chenausnutzung_der_mbr_minimieren (end)
+
+% section optimierungskriterien (end)
+
+\section{Der R*-Baum} % (fold)
+\label{sec:rstar_tree}
+
+
+
+% section rstar_tree (end)
+
+\section{Fazit} % (fold)
+\label{sec:fazit}
+
+
+
+% section fazit (end)
 
 
 
@@ -123,6 +159,7 @@
 		\begin{acronym}[length]
 	    \acro{SAM}{Spatial access methods}
 	    \acro{PAM}{Point access methods}
+	    \acro{MBR}{Minimum bounding Rectangle}
 	  \end{acronym}
 
 	% section abbreviations (end)

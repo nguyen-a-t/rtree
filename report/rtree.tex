@@ -6,7 +6,7 @@
 \documentclass[runningheads,a4paper]{llncs}
 
 \usepackage{amssymb}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \usepackage{graphicx}
 \graphicspath{ {./img/} }           % change graphics include path to ./img/
 
@@ -105,7 +105,10 @@
 \section{Motivation} % (fold)
 \label{sec:intro}
 
+	Herkömmliche eindimensionale Indexstrukturen bieten keine Möglichkeiten, mehrdimensionale räumliche Daten effizient zu durchsuchen. Die Reduzierung auf Punkte, um Objekte mit \ac{PAM} abzufragen, ist mit gewissen Einbußen möglich, aber insbesondere für komplexere Anfragen unzureichend.
+	Der 1984 von Guttman entwickelte R-Baum \citep{Guttman:1984} versucht dieses Problem zu lösen, in dem der Index direkt auf den räumlichen Eigenschaften basiert. Mittlerweile existieren unzählige Varianten und Verwandte des R-Baums, dessen Einsatzgebiet weit über die klassische Geoinformatik hinaus geht.
 
+	Eine dieser Varianten ist der R*-Baum, welcher die (teils unbegründeten) Annahmen in der ursprünglichen Veröffentlichung hinterfragt und so die Datenstruktur weiter optimiert. Im Folgenden gehen wir auf die Verfahren und Eigenheiten des regulären R-, als auch des R*-Baums ein, stellen allgemeine Optimierungskriterien auf und schließen mit einem Vergleich.
 
 % section intro (end)
 
@@ -121,19 +124,19 @@
 	Bei dem herkömmlichen R-Baum wird, sowohl beim Hinzufügen neuer Elemente als auch beim Split, lediglich die Fläche der umschließenden Rechtecke minimiert \citep[vgl.][50-51]{Guttman:1984}. Einige der daraus resultierenden Probleme wurden bereits im vorherigen Abschnitt dargelegt.
 	Im Folgenden werden weitere mögliche Optimierungen und ihre Wechselwirkungen aufgeführt.
 
-	\subsection{Flächenausnutzung maximieren} % (fold)
+	\subsubsection{Flächenausnutzung maximieren} % (fold)
 	\label{sub:flaechenausnutzung}
 
 	Die Fläche, welche von dem umschließenden Rechteck, aber nicht von den in ihm enthaltenen Rechtecken, überdeckt wird, soll minimiert werden. Es soll also möglichst wenig Platz \enquote{verschwendet} werden.
 
-	% subsection flaechenausnutzung (end)
+	% subsubsection flaechenausnutzung (end)
 
-	\subsection{Überlappung minimieren} % (fold)
+	\subsubsection{Überlappung minimieren} % (fold)
 	\label{sub:ueberlappung_minimieren}
 
 	Die Überlappung der umschließenden Rechtecke soll minimiert werden.
 	
-	% subsection ueberlappung_minimieren (end)
+	% subsubsection ueberlappung_minimieren (end)
 
 % section optimierungskriterien (end)
 
@@ -176,8 +179,7 @@
 	% \listoffigures
 
 	% Literaturverzeichnis
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%b
 	\nocite{*}							% include all bibtex entries from bibliography, even if they are not citied in the document
 
 	\printbibliography

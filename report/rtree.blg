@@ -1,15 +1,15 @@
-[1] Config.pm:320> INFO - This is Biber 1.9
+[0] Config.pm:320> INFO - This is Biber 1.9
 [1] Config.pm:323> INFO - Logfile is 'rtree.blg'
-[87] biber-darwin:277> INFO - === Tue Jul 28, 2015, 15:51:25
-[87] Biber.pm:333> INFO - Reading 'rtree.bcf'
-[224] Biber.pm:632> INFO - Using all citekeys in bib section 0
-[277] Biber.pm:3051> INFO - Processing section 0
-[315] Biber.pm:3189> INFO - Looking for bibtex format file '_literatur.bib' for section 0
-[317] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
-[318] bibtex.pm:864> INFO - Found BibTeX data source '_literatur.bib'
-[396] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[396] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[396] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'de-DE'
-[396] Biber.pm:2932> INFO - No sort tailoring available for locale 'de-DE'
-[407] bbl.pm:517> INFO - Writing 'rtree.bbl' with encoding 'UTF-8'
-[408] bbl.pm:606> INFO - Output to rtree.bbl
+[86] biber-darwin:277> INFO - === Wed Jul 29, 2015, 15:05:24
+[86] Biber.pm:333> INFO - Reading 'rtree.bcf'
+[220] Biber.pm:632> INFO - Using all citekeys in bib section 0
+[272] Biber.pm:3051> INFO - Processing section 0
+[332] Biber.pm:3189> INFO - Looking for bibtex format file '_literatur.bib' for section 0
+[335] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
+[336] bibtex.pm:864> INFO - Found BibTeX data source '_literatur.bib'
+[413] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[413] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[413] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'de-DE'
+[414] Biber.pm:2932> INFO - No sort tailoring available for locale 'de-DE'
+[424] bbl.pm:517> INFO - Writing 'rtree.bbl' with encoding 'UTF-8'
+[425] bbl.pm:606> INFO - Output to rtree.bbl

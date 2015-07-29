@@ -349,11 +349,11 @@
                         \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
                        {-18\p@ \@plus -4\p@ \@minus -4\p@}%
-                       {-0.5em \@plus -0.22em \@minus -0.1em}%
+                       {2\p@ \@plus 1\p@ \@minus 1\p@}%
                        {\normalfont\normalsize\bfseries\boldmath}}
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
                        {-12\p@ \@plus -4\p@ \@minus -4\p@}%
-                       {-0.5em \@plus -0.22em \@minus -0.1em}%
+                       {2\p@ \@plus 1\p@ \@minus 1\p@}%
                        {\normalfont\normalsize\itshape}}
 \renewcommand\subparagraph[1]{\typeout{LLNCS warning: You should not use
                   \string\subparagraph\space with this class}\vskip0.5cm

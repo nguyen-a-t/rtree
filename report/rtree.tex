@@ -90,7 +90,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{abstract}
 
-\keywords{Geodatenbanken, R*, Spatial Access}
+\keywords{Geodatenbanken, R*, Spatial Access, Index, R-Tree}
 % \end{abstract}
 
 
@@ -122,21 +122,43 @@
 \label{sec:optimierungskriterien}
 
 	Bei dem herkömmlichen R-Baum wird, sowohl beim Hinzufügen neuer Elemente als auch beim Split, lediglich die Fläche der umschließenden Rechtecke minimiert \citep[vgl.][50-51]{Guttman:1984}. Einige der daraus resultierenden Probleme wurden bereits im vorherigen Abschnitt dargelegt.
-	Im Folgenden werden weitere mögliche Optimierungen und ihre Wechselwirkungen aufgeführt.
+	Im Folgenden werden weitere mögliche Optimierungen und ihre Wechselwirkungen aufgeführt. Ein R-Baum muss mit unterschiedlichen Geometrien und Anfragen umgehen können, daher wirken sich einige Kriterien in einigen Situationen stärker aus als andere.
 
 	\subsubsection{Flächenausnutzung maximieren} % (fold)
-	\label{sub:flaechenausnutzung}
+	\label{ssub:flaechenausnutzung}
 
-	Die Fläche, welche von dem umschließenden Rechteck, aber nicht von den in ihm enthaltenen Rechtecken, überdeckt wird, soll minimiert werden. Es soll also möglichst wenig Platz \enquote{verschwendet} werden.
+	Die Fläche, welche von dem umschließenden Rechteck, aber nicht von den in ihm enthaltenen Rechtecken, überdeckt wird, soll minimiert werden. Es soll also möglichst wenig Platz \enquote{verschwendet} werden. \citep[vgl.][323]{Beckmann:1990}
 
 	% subsubsection flaechenausnutzung (end)
 
 	\subsubsection{Überlappung minimieren} % (fold)
-	\label{sub:ueberlappung_minimieren}
+	\label{ssub:ueberlappung_minimieren}
 
-	Die Überlappung der umschließenden Rechtecke soll minimiert werden.
+	Die Überlappung der umschließenden Rechtecke soll minimiert werden. Dadurch müssen ebenfalls weniger Pfade im Baum traversiert werden. Liegt ein angefragter Punkt beispielsweise in einer Region, in der sich viele Rechtecke überschneiden, müssen alle Möglichkeiten weiter verfolgt werden, was zu erhöhtem Rechenaufwand führt.
 	
 	% subsubsection ueberlappung_minimieren (end)
+
+	\subsubsection{Summe der Kantenlänge minimieren} % (fold)
+	\label{ssub:kantenlaenge}
+
+	Die Summe der Kantenlänge der Rechtecke (\emph{\enquote{margin}}) soll möglichst klein sein. Quadrate werden also bevorzugt. Da Quadrate auf den jeweils höheren Ebenen im Baum besser zusammengefasst werden können, reduziert sich so die benötigte Fläche.
+	Außerdem profitieren Anfragen mit großen, quadratischen Elementen von dieser Optimierung. \citep[vgl.][323]{Beckmann:1990}
+	
+	% subsubsection kantenlaenge (end)
+
+	\subsubsection{Speichernutzung maximieren} % (fold)
+	\label{ssub:speichernutzung_maximieren}
+
+	Eine geringe Höhe des Baumes wirkt sich positiv auf die Kosten einer Abfrage aus. Das kann durch eine möglichst gleichmäßige Verteilung der Blattknoten erreicht werden. Insbesondere für große Abfragerechtecke ist dies relevant, da hier, auch abgesehen von den ersten drei genannten Optimierungen, mehrere Pfade traversiert werden müssen. \citep[vgl.][323-324]{Beckmann:1990}
+	
+	% subsubsection speichernutzung_maximieren (end)
+
+	\subsubsection{Wechselwirkungen} % (fold)
+	\label{ssub:wechselwirkungen}
+
+	Um die Flächenausnutzung zu maximieren und die Überlappung zu minimieren, bedarf es einer größeren Freiheit bei der Wahl der Formen und der Anzahl an Rechtecken pro Knoten. Die Kriterien stehen also in Konkurrenz mit einer geringen Kantenlänge und hohen Speicherausnutzung. Auf der anderen Seite können quadratischere Rechtecke besser zusammengefasst werden, was sich wiederum positiv auf die Speichernutzung auswirkt. \citep[vgl.][323-324]{Beckmann:1990}
+	
+	% subsubsection wechselwirkungen (end)
 
 % section optimierungskriterien (end)
 

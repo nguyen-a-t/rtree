@@ -1970,6 +1970,10 @@
   <bcf:section number="0">
     <bcf:citekey order="1">Guttman:1984</bcf:citekey>
     <bcf:citekey order="2">Guttman:1984</bcf:citekey>
+    <bcf:citekey order="3">Beckmann:1990</bcf:citekey>
+    <bcf:citekey order="4">Beckmann:1990</bcf:citekey>
+    <bcf:citekey order="5">Beckmann:1990</bcf:citekey>
+    <bcf:citekey order="6">Beckmann:1990</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">

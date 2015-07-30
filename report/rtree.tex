@@ -110,6 +110,8 @@
 
 	Eine dieser Varianten ist der R*-Baum, welcher die (teils unbegründeten) Annahmen in der ursprünglichen Veröffentlichung hinterfragt und so die Datenstruktur weiter optimiert. Im Folgenden gehen wir auf die Verfahren und Eigenheiten des regulären R-, als auch des R*-Baums ein, stellen allgemeine Optimierungskriterien auf und schließen mit einem Vergleich.
 
+	Im Prinzip ist der R*-Baum für n-dimensionale Daten geeignet. Diese Arbeit beschränkt sich allerdings auf Geodaten, insbesondere sind alle Beispiele im zwei dimensionalen Raum. Viele der hier beschriebenen Eigenschaften lassen sich aber verallgemeinern. Für 
+
 % section intro (end)
 
 \section{Prinzipien eines R-Baums} % (fold)
@@ -141,7 +143,7 @@
 	\subsubsection{Summe der Kantenlänge minimieren} % (fold)
 	\label{ssub:kantenlaenge}
 
-	Die Summe der Kantenlänge der Rechtecke (\emph{\enquote{margin}}) soll möglichst klein sein. Quadrate werden also bevorzugt. Da Quadrate auf den jeweils höheren Ebenen im Baum besser zusammengefasst werden können, reduziert sich so die benötigte Fläche.
+	Die Summe der Kantenlänge der Verzeichnisrechtecke (\emph{\enquote{margin}}) soll möglichst klein sein. Quadrate werden also bevorzugt. Da Quadrate auf den jeweils höheren Ebenen im Baum besser zusammengefasst werden können, reduziert sich so die benötigte Fläche.
 	Außerdem profitieren Anfragen mit großen, quadratischen Elementen von dieser Optimierung. \citep[vgl.][323]{Beckmann:1990}
 	
 	% subsubsection kantenlaenge (end)
@@ -172,7 +174,16 @@
 \section{Fazit} % (fold)
 \label{sec:fazit}
 
+	Zunächst lässt sich festhalten, dass der R*-Baum alle vorgestellten Optimierungskriterien berücksichtigt.
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{vergleich-quad-star.png}
+		\caption{Quadratischer- (links) und R*-Split (rechts) im Vergleich. (Bildquelle: \url{https://github.com/davidmoten/rtree})}
+		\label{fig:vergleich-quad-star}
+	\end{figure}
+
+	Der R*-Baum betreibt sehr hohen Aufwand beim Hinzufügen und Löschen von Elementen, um eine gute Struktur zu bewahren. \Cref{fig:vergleich-quad-star} zeigt den gleichen Datensatz (mit gleicher Einfügereihenfolge), aber unterschiedlichen Split-Verfahren. Das Beispiel zeigt, wie positiv sich der Mehraufwand auswirkt. Mit R*-Split überschneiden sich die Verzeichnisrechtecke deutlich weniger, was schnellere Abfragen ermöglichen sollte.
 
 % section fazit (end)
 

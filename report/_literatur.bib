@@ -2,12 +2,35 @@
 %% http://bibdesk.sourceforge.net/
 
 
-%% Created for Simon at 2015-07-29 15:05:06 +0200 
+%% Created for Simon at 2015-07-30 17:38:04 +0200 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@incollection{Kriegel:2008,
+	Author = {Kriegel, Hans-Peter and Kunath, Peter and Renz, Matthias},
+	Booktitle = {Encyclopedia of GIS},
+	Date-Added = {2015-07-30 15:35:36 +0000},
+	Date-Modified = {2015-07-30 15:37:54 +0000},
+	Doi = {10.1007/978-0-387-35973-1_1148},
+	Isbn = {978-0-387-30858-6},
+	Pages = {987--992},
+	Publisher = {Springer US},
+	Title = {R*-Tree},
+	Year = {2008}}
+
+@inproceedings{Kriegel:1996,
+	Abstract = {Publisher Summary This chapter proposes a new method for indexing large amounts of point and spatial data in high-dimensional space. An analysis shows that index structures, such as the R-tree, are not adequate for indexing high-dimensional data sets. The major problem of R-tree-based index structures is the overlap of the bounding boxes in the directory, which increases with growing dimension. A new organization of the directory is introduced to avoid this problem, which uses a split algorithm minimizing overlap and additionally utilizes the concept of supernodes. The basic idea of overlap-minimizing split and supernodes is to keep the directory as hierarchical as possible, and at the same time to avoid splits in the directory that would result in high overlap. The experiments show that for high-dimensional data, the X-tree outperforms the well-known R-tree and the TV-tree by up to two orders of magnitude. Since for very high dimensionality, the supernodes may become rather large, the current work is concentrated on a parallel version of the X-tree, which is expected to provide a good performance even for larger data sets and the more time consuming nearest neighbor queries.},
+	Address = {Mumbai, India},
+	Author = {Stefan Berchtold and Daniel A. Keim and Hans-Peter Kriegel},
+	Booktitle = {Proceedings of the 22nd VLDB Conference},
+	Date-Added = {2015-07-30 15:21:01 +0000},
+	Date-Modified = {2015-07-30 15:26:06 +0000},
+	Pages = {28---39},
+	Title = {The X-tree: An Index Structure for High-Dimensional Data},
+	Year = {1996}}
 
 @inproceedings{Guttman:1984,
 	Address = {New York, NY, USA},
@@ -20,7 +43,8 @@
 	Publisher = {ACM},
 	Series = {SIGMOD '84},
 	Title = {R-trees: a dynamic index structure for spatial searching},
-	Year = {1984}}
+	Year = {1984},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1145/602259.602266}}
 
 @inproceedings{Beckmann:1990,
 	Acmid = {98741},
@@ -37,4 +61,5 @@
 	Publisher = {ACM},
 	Series = {SIGMOD '90},
 	Title = {The R*-tree: An Efficient and Robust Access Method for Points and Rectangles},
-	Year = {1990}}
+	Year = {1990},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1145/93597.98741}}

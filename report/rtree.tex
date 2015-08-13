@@ -118,7 +118,7 @@
 \section{Prinzipien eines R-Baums} % (fold)
 \label{sec:prinzipien_eines_r_baums}
 
-Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfragen von Geometrien im zweidimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschlieszende Rechtecke (kurz \acs{MBR}) repraesentiert. Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr ueberschreitet. Der Vorteil von dieser Strukturierung sorgt dafür, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle Geometrien in der Ebene betrachtet werden müssen: Wenn in \Cref{fig:beispiel-r-tree} 
+Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfragen von Geometrien im zweidimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschlieszende Rechtecke (kurz \acs{MBR}) repraesentiert. Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr ueberschreitet. Der Vorteil von dieser Strukturierung sorgt dafuer, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle Geometrien in der Ebene betrachtet werden muessen: Wenn in \Cref{fig:beispiel-r-tree} 
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{001_Beispiel_R-Tree.pdf}

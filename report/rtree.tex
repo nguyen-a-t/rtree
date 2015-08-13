@@ -15,6 +15,7 @@
 \usepackage[T1]{fontenc}            % wichtig fÃ¼r Trennung von WÃ¶rtern mit Umlauten
 \usepackage{microtype}						  % verbesserter Randausgleich
 \usepackage{pdfpages}
+\usepackage{lmodern}		%fuer schoenen Text in pdf-Abbildungen
 
 \usepackage{quoting}
 \usepackage[
@@ -117,6 +118,14 @@
 \section{Prinzipien eines R-Baums} % (fold)
 \label{sec:prinzipien_eines_r_baums}
 
+Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfragen von Geometrien im zweidimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschlieszende Rechtecke (kurz \acs{MBR}) repraesentiert. Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr ueberschreitet. Der Vorteil von dieser Strukturierung sorgt dafür, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle Geometrien in der Ebene betrachtet werden müssen: Wenn in \Cref{fig:beispiel-r-tree} 
+\begin{figure}[H]
+		\begin{center}
+		\includegraphics[width=1.0\textwidth ]{001_Beispiel_R-Tree.pdf}
+		\caption{Beispiel fuer einen R-Baum. (\acs{M}=3, \acs{m}=2)}
+		\label{fig:beispiel-r-tree}
+		\end{center}
+	\end{figure}
 
 % section prinzipien_eines_r_baums (end)
 
@@ -214,7 +223,9 @@
 	\label{sub:abbreviations}
 
 		\begin{acronym}[length]
-			\acro{MBR}{Minimum bounding Rectangle}
+		\acro{m}{Variable: minimale Anzahl der Geometrien in einer Partition}
+		\acro{M}{Variable: maximale Anzahl der Geometrien in einer Partition}
+		\acro{MBR}{Minimum bounding Rectangle}
 	    \acro{SAM}{Spatial access methods}
 	    \acro{PAM}{Point access methods}
 	  \end{acronym}

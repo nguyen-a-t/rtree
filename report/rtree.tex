@@ -12,7 +12,7 @@
 
 \usepackage[english, ngerman]{babel}
 \usepackage[utf8]{inputenc}			    % for working umlaute
-\usepackage[T1]{fontenc}            % wichtig für Trennung von Wörtern mit Umlauten
+\usepackage[T1]{fontenc}            % wichtig fÃ¼r Trennung von WÃ¶rtern mit Umlauten
 \usepackage{microtype}						  % verbesserter Randausgleich
 \usepackage{pdfpages}
 \usepackage{lmodern}		%fuer schoenen Text in pdf-Abbildungen
@@ -25,18 +25,18 @@
 	thresholdtype=lines
 ]{csquotes}
 % \SetBlockEnvironment{quoting}			% real block quotes
-\renewcommand\mkblockquote[4]{\leavevmode\llap{„}#1#2#3“#4}			% block quotes with german quotation marks
+\renewcommand\mkblockquote[4]{\leavevmode\llap{â€ž}#1#2#3â€œ#4}			% block quotes with german quotation marks
 
 % quellen mangement
 \usepackage[
 	backend=biber,
-	natbib=true,								% damit \citep{} etc. verwendet werden können
+	natbib=true,								% damit \citep{} etc. verwendet werden kÃ¶nnen
 	style=authoryear-icomp,    	% Zitierstil
 	isbn=false,                	% ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
 	pagetracker=true,          	% ebd. bei wiederholten Angaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
 	maxbibnames=10,            	% maximale Namen, die im Literaturverzeichnis angezeigt werden
 	maxcitenames=2,            	% maximale Namen, die im Text angezeigt werden, ab 2 wird u.a. nach den ersten Autor angezeigt
-	autocite=inline,           	% regelt Aussehen für \autocite (inline=\parancite)
+	autocite=inline,           	% regelt Aussehen fÃ¼r \autocite (inline=\parancite)
 	block=space,               	% kleiner horizontaler Platz zwischen den Feldern
 	backref=true,              	% Seiten anzeigen, auf denen die Referenz vorkommt
 	backrefstyle=three+,       	% fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
@@ -45,11 +45,11 @@
 \setlength{\bibitemsep}{0.6em}     	% Abstand zwischen den Literaturangaben
 \setlength{\bibhang}{2em}        		% Einzug nach jeweils erster Zeile
 % \renewcommand{\postnotedelim}{\addcolon\addspace}			% Doppelpunkt statt Komma vor der Seitenangabe in der Zitierung
-% \DeclareFieldFormat{postnote}{#1}											% Kein einleitendes «S.» vor der Seitenangabe in der Zitierung
+% \DeclareFieldFormat{postnote}{#1}											% Kein einleitendes Â«S.Â» vor der Seitenangabe in der Zitierung
 
 \bibliography{_literatur}
 
-\usepackage[]{acronym}																% für Abkürzungen
+\usepackage[]{acronym}																% fÃ¼r AbkÃ¼rzungen
 
 \usepackage{hyperref}																	% for hyperlink references
 \usepackage[ngerman, nameinlink]{cleveref}						% for naming references
@@ -74,7 +74,7 @@
 \subtitle{Der R*-Baum}
 
 % a short form should be given in case it is too long for the running head
-% \titlerunning{Verschiebungsalgorithmen für Kartenbeschriftungen}
+% \titlerunning{Verschiebungsalgorithmen fÃ¼r Kartenbeschriftungen}
 
 \author{Patrick Schulz \& Simon Hötten}
 
@@ -85,12 +85,9 @@
 %\toctitle{Titel vom Inhaltsverzeichnis}
 %\tocauthor{Authors' Instructions}
 \maketitle
-
-
 % Zusammenfassung
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{abstract}
-
 \keywords{Geodatenbanken, R*, Spatial Access, Index, R-Tree}
 % \end{abstract}
 
@@ -118,14 +115,31 @@
 \section{Prinzipien eines R-Baums} % (fold)
 \label{sec:prinzipien_eines_r_baums}
 
-Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfragen von Geometrien im zweidimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschlieszende Rechtecke (kurz \acs{MBR}) repraesentiert. Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr ueberschreitet. Der Vorteil von dieser Strukturierung sorgt dafuer, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle Geometrien in der Ebene betrachtet werden muessen: Wenn in \Cref{fig:beispiel-r-tree} 
+Der R-Baum ist eine räumliche Indexstruktur für die effiziente Bereichsabfragen von Geometrien im zweidimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschließende Rechtecke (kurz \acs{MBR}) repräsentiert. 
+Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr überschreitet. Der Vorteil von dieser Strukturierung sorgt dafür, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle 
+Geometrien in der Ebene betrachtet werden muessen: Die \Cref{fig:beispiel-r-tree} stellt einen solchen R-Baum dar, wo bei einer Bereichsabfrage im besten Fall nach der ersten Entscheidungsebene die Hälfte des Geometriebestandes nicht mehr betrachtet werden muss. Die Verwendung von achsparallelen \asc{MBR} sorgt für effiziente Abfragen, ob sich zwei \asc{MBR} schneiden. Auch die Geometrien selbst werden durch \asc{MBR} repräsentiert, sind allerdings zur Bewahrung der Übersichtlichkeit in der \Cref{fig:beispiel-r-tree} nicht dargestellt.
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{001_Beispiel_R-Tree.pdf}
-		\caption{Beispiel fuer einen R-Baum. (\acs{M}=3, \acs{m}=2)}
+		\caption{Beispiel für einen R-Baum. (\acs{M}=3, \acs{m}=2)}
 		\label{fig:beispiel-r-tree}
 		\end{center}
 	\end{figure}
+Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum ideal verteilt. Der Aufbau eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens laesst sich in zwei Module beschreiben, der Author bezeichnet diese Module als die Methoden ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absaetzen beschrieben. Abhaengig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmoeglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden koennte. Eine Lösung für dieses Problem wird in Kapitel ?(ForcedReInsert)? behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
+
+\subsection{ChooseSubTree()}
+\label{sec:r-choose-sub}
+ChooseSubTree() ist eine rekursive Methode, die für ein bestimmtes Polygon versucht wird in der aktuellen Baum-Ebene eine Partition auszusuchen, der sie zugeordnet werden soll. 
+
+\subsection{QuadraticSplit()}
+\label{sec:r-split}
+QuadraticSplit() wird aufgerufen, sobald innerhalb einer Partition die Anzahl der Geometrien den Wert \asc{M} überschreitet. Wenn der Fall eintritt, muss der Inhalt der überfüllten Partition in zwei neue Partition aufgeteilt werden.  
+
+Verfahren...
+
+Der Grund, wieso die Methode QuadraticSplit() heißt und nicht einfach Split(), liegt daran, dass verschiedene Umsetzungen für die Aufteilung existieren, die eine Unterschiedliche Performance aufweisen. QuadraticSplit() deutet darauf hin, dass die Methode abhängig von der Anzahl Polygone eine quadratische Laufzeit besitzt. Neben dem QuadraticSplit() existieren noch der LinearSplit(), QubicSplit() und der GreenesSplit(). Der LinearSplit() unterscheidet sich vom QuadraticSplit() nur daran, dass dieser die Sortierung der ausstehenden Polygone nur einmal am Anfang durchführt. Dies sorgt zwar für eine bessere Laufzeit, die daraus resultierenden Aufteilungen werden im Vergleich zum QuadraticSplit() allerdings nie besser sein. Der CubicSplit hingegen verspricht, dass nach dem Flächenkriterium die besten Aufteilungen generiert wird auf Kosten der längeren Bearbeitungszeit. Der QuadraticSplit ist somit ein Kompromiss zwischen Effizienz und Qualität.
+
+GreenesSplit() blablub
 
 % section prinzipien_eines_r_baums (end)
 
@@ -145,7 +159,7 @@ Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfrage
 	\subsubsection{Überlappung minimieren} % (fold)
 	\label{ssub:ueberlappung_minimieren}
 
-	Die Überlappung der umschließenden Rechtecke soll minimiert werden. Dadurch müssen ebenfalls weniger Pfade im Baum traversiert werden. Liegt ein angefragter Punkt beispielsweise in einer Region, in der sich viele Rechtecke überschneiden, müssen alle Möglichkeiten weiter verfolgt werden, was zu erhöhtem Rechenaufwand führt.
+	Die Überlappung der umschließenden Rechtecke soll minimiert werden. Dadurch müssen ebenfalls weniger Pfade im Baum traversiert werden. Liegt ein angefragter Punkt beispielsweise in einer Region, in der sich viele Rechtecke Überschneiden, müssen alle Möglichkeiten weiter verfolgt werden, was zu erhöhtem Rechenaufwand führt.
 	
 	% subsubsection ueberlappung_minimieren (end)
 
@@ -160,7 +174,7 @@ Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfrage
 	\subsubsection{Speichernutzung maximieren} % (fold)
 	\label{ssub:speichernutzung_maximieren}
 
-	Eine geringe Höhe des Baumes wirkt sich positiv auf die Kosten einer Abfrage aus. Das kann durch eine möglichst gleichmäßige Verteilung der Blattknoten erreicht werden. Insbesondere für große Abfragerechtecke ist dies relevant, da hier, auch abgesehen von den ersten drei genannten Optimierungen, mehrere Pfade traversiert werden müssen. \citep[vgl.][323-324]{Beckmann:1990}
+	Eine geringe Höhe des Baumes wirkt sich positiv auf die Kosten einer Abfrage aus. Das kann durch eine möglichst gleichmaßige Verteilung der Blattknoten erreicht werden. Insbesondere für große Abfragerechtecke ist dies relevant, da hier, auch abgesehen von den ersten drei genannten Optimierungen, mehrere Pfade traversiert werden müssen. \citep[vgl.][323-324]{Beckmann:1990}
 	
 	% subsubsection speichernutzung_maximieren (end)
 
@@ -183,7 +197,7 @@ Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfrage
 \section{Fazit} % (fold)
 \label{sec:fazit}
 
-	Zunächst lässt sich festhalten, dass der R*-Baum alle vorgestellten Optimierungskriterien berücksichtigt. Das hat einen etwas erhöhten Implementierungsaufwand gegenüber herkömmlichen R-Bäumen zur Folge.
+	Zunächst lässt sich festhalten, dass der R*-Baum alle vorgestellten Optimierungskriterien berücksichtigt. Das hat einen etwas erhöhten Implementierungsaufwand gegenüber herkömmlichen R-Bumen zur Folge.
 
 	\begin{figure}[H]
 		\centering
@@ -192,7 +206,7 @@ Der R-Baum ist eine raeumliche Indexstruktur fuer die effiziente Bereichsabfrage
 		\label{fig:vergleich-quad-star}
 	\end{figure}
 
-	Der R*-Baum betreibt sehr hohen Aufwand beim Hinzufügen und Löschen von Elementen, um eine gute Struktur zu bewahren. \Cref{fig:vergleich-quad-star} zeigt den gleichen Datensatz (mit gleicher Einfügereihenfolge), aber unterschiedlichen Split-Verfahren. Das Beispiel zeigt, wie positiv sich der Mehraufwand auswirkt. Mit R*-Split überschneiden sich die Verzeichnisrechtecke deutlich weniger, was schnellere Abfragen ermöglicht.
+	Der R*-Baum betreibt sehr hohen Aufwand beim Hinzufügen und Löschen von Elementen, um eine gute Struktur zu bewahren. \Cref{fig:vergleich-quad-star} zeigt den gleichen Datensatz (mit gleicher Einfügereihenfolge), aber unterschiedlichen Split-Verfahren. Das Beispiel zeigt, wie positiv sich der Mehraufwand auswirkt. Mit R*-Split Überschneiden sich die Verzeichnisrechtecke deutlich weniger, was schnellere Abfragen ermöglicht.
 
 	\subsubsection{Benchmarks} % (fold)
 	\label{ssub:benchmarks}

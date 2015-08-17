@@ -117,19 +117,19 @@
 
 Der R-Baum ist eine räumliche Indexstruktur für die effiziente Bereichsabfragen von Geometrien im zweidimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschließende Rechtecke (kurz \acs{MBR}) repräsentiert. 
 Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr überschreitet. Der Vorteil von dieser Strukturierung sorgt dafür, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle 
-Geometrien in der Ebene betrachtet werden muessen: Die \Cref{fig:beispiel-r-tree} stellt einen solchen R-Baum dar, wo bei einer Bereichsabfrage im besten Fall nach der ersten Entscheidungsebene die Hälfte des Geometriebestandes nicht mehr betrachtet werden muss. Die Verwendung von achsparallelen \asc{MBR} sorgt für effiziente Abfragen, ob sich zwei \asc{MBR} schneiden. Auch die Geometrien selbst werden durch \asc{MBR} repräsentiert, sind allerdings zur Bewahrung der Übersichtlichkeit in der \Cref{fig:beispiel-r-tree} nicht dargestellt.
+Geometrien in der Ebene betrachtet werden müssen: Die \Cref{fig:beispiel-r-tree} stellt einen solchen R-Baum dar, wo bei einer Bereichsabfrage im besten Fall nach der ersten Entscheidungsebene die Hälfte des Geometriebestandes nicht mehr betrachtet werden muss. Die Verwendung von achsparallelen \asc{MBR} sorgt für effiziente Verschneidungs-Abfragen. Durch das alleinige Vergleichen der Koordinaten kann ermittelt werden, ob zwei \asc{MBR} sich schneiden oder nicht. Die Geometrien selbst werden ebenfalls durch \asc{MBR} repräsentiert, sind allerdings zur Bewahrung der Übersichtlichkeit in der \Cref{fig:beispiel-r-tree} nicht dargestellt.
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{001_Beispiel_R-Tree.pdf}
-		\caption{Beispiel für einen R-Baum. (\acs{M}=3, \acs{m}=2)}
+		\caption{Beispiel für einen R-Baum. Links: Verteilung der Polygone und Partitionen im zweidimensionalen Raum. Rechts: Die dazugehörige Baumstruktur. (\acs{M}=3, \acs{m}=2)}
 		\label{fig:beispiel-r-tree}
 		\end{center}
 	\end{figure}
-Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum ideal verteilt. Der Aufbau eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens laesst sich in zwei Module beschreiben, der Author bezeichnet diese Module als die Methoden ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absaetzen beschrieben. Abhaengig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmoeglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden koennte. Eine Lösung für dieses Problem wird in Kapitel ?(ForcedReInsert)? behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
+Der Aufbau eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens lässt sich in zwei Methoden beschreiben, der Author bezeichnet diese Methoden als ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absätzen beschrieben. Abhängig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmöglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden könnte. Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum zur Veranschaulichung ideal verteilt. Eine Lösung für dieses Problem wird in Kapitel ?(ForcedReInsert)? behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
 
 \subsection{ChooseSubTree()}
 \label{sec:r-choose-sub}
-ChooseSubTree() ist eine rekursive Methode, die für ein bestimmtes Polygon versucht wird in der aktuellen Baum-Ebene eine Partition auszusuchen, der sie zugeordnet werden soll. 
+ChooseSubTree() ist eine rekursive Methode, die für das einzufügende Polygon die paasende Partition in der aktuellen Baum-Ebene zufinden, welches das Polygon daraufhin zugeordnet werden soll. 
 
 \subsection{QuadraticSplit()}
 \label{sec:r-split}
@@ -139,7 +139,8 @@ Verfahren...
 
 Der Grund, wieso die Methode QuadraticSplit() heißt und nicht einfach Split(), liegt daran, dass verschiedene Umsetzungen für die Aufteilung existieren, die eine Unterschiedliche Performance aufweisen. QuadraticSplit() deutet darauf hin, dass die Methode abhängig von der Anzahl Polygone eine quadratische Laufzeit besitzt. Neben dem QuadraticSplit() existieren noch der LinearSplit(), QubicSplit() und der GreenesSplit(). Der LinearSplit() unterscheidet sich vom QuadraticSplit() nur daran, dass dieser die Sortierung der ausstehenden Polygone nur einmal am Anfang durchführt. Dies sorgt zwar für eine bessere Laufzeit, die daraus resultierenden Aufteilungen werden im Vergleich zum QuadraticSplit() allerdings nie besser sein. Der CubicSplit hingegen verspricht, dass nach dem Flächenkriterium die besten Aufteilungen generiert wird auf Kosten der längeren Bearbeitungszeit. Der QuadraticSplit ist somit ein Kompromiss zwischen Effizienz und Qualität.
 
-GreenesSplit() blablub
+\subsection{GreenesSplit()}
+In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bekannten Split-Methoden vorgestellt. Die Idee besteht darin, die Polygone nach der jeweiligen Achse zu sortieren, in der die größte Ausbreitung ermittelt wird. Auf Basis dieser Sortierung hat man nun eine Reihe Splits, aus dem man dann den Favoriten zu ermitteln hat und übernimmt.
 
 % section prinzipien_eines_r_baums (end)
 

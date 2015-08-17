@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  14 AUG 2015 20:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  17 AUG 2015 17:37
 entering extended mode
 **rtree.tex
 (C:\git\rtree\report\rtree.tex
@@ -1122,8 +1122,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.120 ...ºr effiziente Abfragen, ob sich zwei \asc
-                                                  {MBR} schneiden. Auch die ...
+l.120 ...naten kann ermittelt werden, ob zwei \asc
+                                                  {MBR} sich schneiden oder ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1131,7 +1131,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.120 ...h die Geometrien selbst werden durch \asc
+l.120 ...etrien selbst werden ebenfalls durch \asc
                                                   {MBR} repr√§sentiert, sind...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1139,7 +1139,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<./img/001_Beispiel_R-Tree.pdf, id=46, 681.54625pt x 241.90375pt>
+<./img/001_Beispiel_R-Tree.pdf, id=50, 681.54625pt x 241.90375pt>
 File: ./img/001_Beispiel_R-Tree.pdf Graphic file (type pdf)
 
 <use ./img/001_Beispiel_R-Tree.pdf>
@@ -1170,15 +1170,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 166.
+Package cleveref Info: loaded `ngerman' language definitions on input line 160.
 
-[3] <./img/vergleich-quad-star.png, id=95, 1229.59375pt x 602.25pt>
+[3] <./img/vergleich-quad-star.png, id=99, 1229.59375pt x 602.25pt>
 File: ./img/vergleich-quad-star.png Graphic file (type png)
 
 <use ./img/vergleich-quad-star.png>
-Package pdftex.def Info: ./img/vergleich-quad-star.png used on input line 204.
+Package pdftex.def Info: ./img/vergleich-quad-star.png used on input line 205.
 (pdftex.def)             Requested size: 347.12354pt x 170.01646pt.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 205.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 206.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
@@ -1189,49 +1189,45 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 205.
+(Font)              <9> on input line 206.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 205.
-
-Underfull \vbox (badness 1043) has occurred while \output is active []
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 208.
+(Font)              <6> on input line 206.
+Package cleveref Info: loaded `ngerman' language definitions on input line 209.
 
  [4]
-Package cleveref Info: loaded `ngerman' language definitions on input line 230.
+Package cleveref Info: loaded `ngerman' language definitions on input line 231.
 
-
-[5pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}
-) has been already used, duplicate ignored
+ [5pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.230 \newpage
+l.231 \newpage
                <C:/git/rtree/report/img/vergleich-quad-star.png>]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 260.
-Package cleveref Info: loaded `ngerman' language definitions on input line 260.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 261.
+Package cleveref Info: loaded `ngerman' language definitions on input line 261.
 
  [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 260.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 261.
 
 (C:\git\rtree\report\rtree.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 27.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 260.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 260.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 261.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 261.
 Package rerunfilecheck Info: File `rtree.out' has not changed.
-(rerunfilecheck)             Checksum: 66D75B84E07958A1DF8B9BB093C735E2;601.
+(rerunfilecheck)             Checksum: F26E10BC66DBE392A3560C8C2C80FB2C;672.
 Package logreq Info: Writing requests to 'rtree.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 17333 strings out of 493921
- 287765 string characters out of 3147278
- 793266 words of memory out of 3000000
- 20197 multiletter control sequences out of 15000+200000
- 60894 words of font info for 103 fonts, out of 3000000 for 9000
+ 17338 strings out of 493921
+ 287843 string characters out of 3147278
+ 793378 words of memory out of 3000000
+ 20203 multiletter control sequences out of 15000+200000
+ 60793 words of font info for 102 fonts, out of 3000000 for 9000
  845 hyphenation exceptions out of 8191
  39i,7n,51p,1275b,1992s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
@@ -1242,9 +1238,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt9.pfb>
-Output written on rtree.pdf (6 pages, 324721 bytes).
+Output written on rtree.pdf (6 pages, 326260 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 19539 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 19547 words of extra memory for PDF output out of 20736 (max. 10000000)
 

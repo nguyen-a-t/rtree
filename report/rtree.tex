@@ -129,11 +129,25 @@ Der Aufbau eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat n
 
 \subsection{ChooseSubTree()}
 \label{sec:r-choose-sub}
-ChooseSubTree() ist eine rekursive Methode, die für das einzufügende Polygon die paasende Partition in der aktuellen Baum-Ebene zufinden, welches das Polygon daraufhin zugeordnet werden soll. 
+ChooseSubTree() ist eine rekursive Methode, die für das einzufügende Polygon die paasende Partition in der aktuellen Baum-Ebene zufinden, welches das Polygon daraufhin zugeordnet werden soll. Die Prozedur wird bis zur untersten Baum-Ebene fortgesetzt. \Cref{fig:beispiel-choose-subtree} zeigt eine Situation in der untersten Baumebene mit zwei Partitionen. 
+\begin{figure}[H]
+		\begin{center}
+		\includegraphics[width=1.0\textwidth ]{002_Beispiel_Choose_SubTree.pdf}
+		\caption{ChooseSubTree()-Szenario. Links: Vergleich des Flächenzuwachses der Partitionen bei Aufnahme des Polygons. Rechts: Polygon wird der Partition zugeordnet, die den geringen Flächenzuwachs erfährt. (\acs{M}=4, \acs{m}=2)}
+		\label{fig:beispiel-choose-subtree}
+		\end{center}
+	\end{figure}
 
 \subsection{QuadraticSplit()}
 \label{sec:r-split}
 QuadraticSplit() wird aufgerufen, sobald innerhalb einer Partition die Anzahl der Geometrien den Wert \asc{M} überschreitet. Wenn der Fall eintritt, muss der Inhalt der überfüllten Partition in zwei neue Partition aufgeteilt werden.  
+\begin{figure}[H]
+		\begin{center}
+		\includegraphics[width=1.0\textwidth ]{003_Beispiel_Quadratic_Split_1.pdf}
+		\caption{Split()-Szenario. Links: Überfüllte Partition und gewähltes Polygonpaar, welche eine neue Partition repräsentieren. Rechts: Aufteilung der Polygone in die zwei neuen Partitionen. (\acs{M}=4, \acs{m}=2)}
+		\label{fig:beispiel-r-tree}
+		\end{center}
+	\end{figure}
 
 Verfahren...
 

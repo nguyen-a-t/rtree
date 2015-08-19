@@ -115,9 +115,9 @@
 \section{Prinzipien eines R-Baums} % (fold)
 \label{sec:prinzipien_eines_r_baums}
 
-Der R-Baum ist eine räumliche Indexstruktur für die effiziente Bereichsabfragen von Geometrien im zweidimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschließende Rechtecke (kurz \acs{MBR}) repräsentiert. 
-Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr überschreitet. Der Vorteil von dieser Strukturierung sorgt dafür, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle 
-Geometrien in der Ebene betrachtet werden müssen: Die \Cref{fig:beispiel-r-tree} stellt einen solchen R-Baum dar, wo bei einer Bereichsabfrage im besten Fall nach der ersten Entscheidungsebene die Hälfte des Geometriebestandes nicht mehr betrachtet werden muss. Die Verwendung von achsparallelen \asc{MBR} sorgt für effiziente Verschneidungs-Abfragen. Durch das alleinige Vergleichen der Koordinaten kann ermittelt werden, ob zwei \asc{MBR} sich schneiden oder nicht. Die Geometrien selbst werden ebenfalls durch \asc{MBR} repräsentiert, sind allerdings zur Bewahrung der Übersichtlichkeit in der \Cref{fig:beispiel-r-tree} nicht dargestellt.
+Der R-Baum ist eine räumliche Indexstruktur für effiziente Bereichsabfragen von Geodaten im n-dimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien der Geodaten in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschließende Rechtecke (kurz \acs{MBR}) repräsentiert. 
+Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr überschreitet. Der Vorteil dieser Strukturierung sorgt dafür, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle 
+Geometrien in der Ebene betrachtet werden müssen: Die \Cref{fig:beispiel-r-tree} stellt einen solchen R-Baum dar, wo bei einer Bereichsabfrage im besten Fall nach der ersten Entscheidungsebene die Hälfte des Geometriebestandes nicht mehr betrachtet werden muss. Wenn die \asc{MBR} einer Partition sich nicht in der Umgebung von Polygon p befindet, so werden auch alle darunterliegenden Ebenen der Partition nicht mehr behandelt. Die Verwendung von achsparallelen \asc{MBR} sorgt für effiziente Verschneidungs-Abfragen. Durch das alleinige Vergleichen der Koordinaten kann ermittelt werden, ob zwei \asc{MBR} sich schneiden oder nicht. Die Geometrien selbst werden ebenfalls durch \asc{MBR} repräsentiert, sind allerdings zur Bewahrung der Übersichtlichkeit in der \Cref{fig:beispiel-r-tree} nicht dargestellt.
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{001_Beispiel_R-Tree.pdf}
@@ -125,27 +125,27 @@ Geometrien in der Ebene betrachtet werden müssen: Die \Cref{fig:beispiel-r-tree
 		\label{fig:beispiel-r-tree}
 		\end{center}
 	\end{figure}
-Der Aufbau eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens lässt sich in zwei Methoden beschreiben, der Author bezeichnet diese Methoden als ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absätzen beschrieben. Abhängig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmöglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden könnte. Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum zur Veranschaulichung ideal verteilt. Eine Lösung für dieses Problem wird in Kapitel ?(ForcedReInsert)? behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
+Der Befüllen eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens lässt sich in zwei Methoden beschreiben, der Author bezeichnet diese Methoden als ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absätzen beschrieben. Abhängig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmöglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden könnte. Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum zur Veranschaulichung ideal verteilt. Eine Lösung für dieses Problem wird in Kapitel ?(ForcedReInsert)? behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
 
 \subsection{ChooseSubTree()}
 \label{sec:r-choose-sub}
-ChooseSubTree() ist eine rekursive Methode, die für das einzufügende Polygon die paasende Partition in der aktuellen Baum-Ebene zufinden, welches das Polygon daraufhin zugeordnet werden soll. Die Prozedur wird bis zur untersten Baum-Ebene fortgesetzt. \Cref{fig:beispiel-choose-subtree} zeigt eine Situation in der untersten Baumebene mit zwei Partitionen. 
+ChooseSubTree() ist eine rekursive Methode, die zu Beginn des Einfügevorgangs aufgerufen wird. Für die einzufügende Geometrie ist in der aktuellen Baum-Ebene die passende Partition zu finden, in dem die Goemetrie daraufhin zugeordnet werden soll. Der Vorgang wird in der darunterliegenden Ebene wiederholt bis die eigentliche Geometrie-Ebene erreicht wird. Bei der Auswahl der geeigneten Partition wird im R-Baum nur der potenzielle Flächenzuwachs des \asc{MBR} betrachtet. Die Geometrie wird der Partition zugewiesen, dessen \asc{MBR} den geringsten Flächenzuwachs erfährt. Lässt sich durch das erwähnte Kriterium kein eindeutiger Favorit ermitteln, wird danach entschieden, welches \asc{MBR} gesamtflächenmäßig kleiner ist. \Cref{fig:beispiel-choose-subtree} zeigt eine Situation in der untersten Baumebene mit zwei Partitionen, wo verglichen werden muss, welches der beiden Partitionen (rot oder blau) für das hellgraue Polygone am geeignetesten ist. Sobald die Geometrieebene erreicht wird, endet an dieser Stelle die ChooseSubTree()-Methode und die Geometrie wird in die erreichte Partition abgelegt. Abschließend wird überprüft, ob die neue Anzahl an Geometrien innerhalb der Partition den Wert \asc{M} überschritten hat. Wenn jenes der Fall ist, wird die QuadraticSplit()-Methode aufgerufen, ansonsten ist der Einfüge-Prozess abgeschlossen.
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{002_Beispiel_Choose_SubTree.pdf}
-		\caption{ChooseSubTree()-Szenario. Links: Vergleich des Flächenzuwachses der Partitionen bei Aufnahme des Polygons. Rechts: Polygon wird der Partition zugeordnet, die den geringen Flächenzuwachs erfährt. (\acs{M}=4, \acs{m}=2)}
+		\caption{ChooseSubTree()-Szenario. Links: Vergleich des Flächenzuwachses der Partitionen bei Aufnahme des Polygons. Rechts: hellgraues Polygon wird der blauen Partition zugeordnet, die den geringeren Flächenzuwachs erfährt. (\acs{M}=4, \acs{m}=2)}
 		\label{fig:beispiel-choose-subtree}
 		\end{center}
 	\end{figure}
 
 \subsection{QuadraticSplit()}
 \label{sec:r-split}
-QuadraticSplit() wird aufgerufen, sobald innerhalb einer Partition die Anzahl der Geometrien den Wert \asc{M} überschreitet. Wenn der Fall eintritt, muss der Inhalt der überfüllten Partition in zwei neue Partition aufgeteilt werden.  
+Die QuadraticSplit() kümmert sich darum, dass überfüllte Partitionen nach dem Einfügen von Geometrien in zwei neue Partitionen aufgeteilt wird. Zuerst werden zwei Geometrien aus der Menge der Partition ermittelt, dessen \asc{MBR] den größten eindimensionalen Abstand voneinander aufweisen. In \Cref{fig:beispiel-quadratic-split} links ist das gesuchte Polygonpaar blau und grün markiert. Diese Ausgewählten Polygone stellen hierbei ...
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{003_Beispiel_Quadratic_Split_1.pdf}
 		\caption{Split()-Szenario. Links: Überfüllte Partition und gewähltes Polygonpaar, welche eine neue Partition repräsentieren. Rechts: Aufteilung der Polygone in die zwei neuen Partitionen. (\acs{M}=4, \acs{m}=2)}
-		\label{fig:beispiel-r-tree}
+		\label{fig:beispiel-quadratic-split}
 		\end{center}
 	\end{figure}
 

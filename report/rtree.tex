@@ -125,7 +125,7 @@ Geometrien in der Ebene betrachtet werden müssen: Die \Cref{fig:beispiel-r-tree
 		\label{fig:beispiel-r-tree}
 		\end{center}
 	\end{figure}
-Der Befüllen eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens lässt sich in zwei Methoden beschreiben, der Author bezeichnet diese Methoden als ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absätzen beschrieben. Abhängig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmöglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden könnte. Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum zur Veranschaulichung ideal verteilt. Eine Lösung für dieses Problem wird in Kapitel ?(ForcedReInsert)? behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
+Der Befüllen eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens lässt sich in zwei Methoden beschreiben, der Author bezeichnet diese Methoden als ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absätzen beschrieben. Abhängig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmöglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden könnte. Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum zur Veranschaulichung ideal verteilt. Eine Lösung für dieses Problem wird in Kapitel \Cref{sec:rstar_reinsert} behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
 
 \subsection{ChooseSubTree()}
 \label{sec:r-choose-sub}
@@ -150,11 +150,25 @@ Die QuadraticSplit() kümmert sich darum, dass überfüllte Partitionen nach dem
 	\end{figure}
 
 \newline
-Der Grund, wieso die Methode QuadraticSplit() heißt und nicht einfach Split(), liegt daran, dass verschiedene Umsetzungen für die Aufteilung existieren, die eine Unterschiedliche Performance aufweisen. QuadraticSplit() deutet darauf hin, dass die Methode abhängig von der Anzahl Polygone eine quadratische Laufzeit besitzt. Neben dem QuadraticSplit() existieren noch der LinearSplit(), CubicSplit() und der GreenesSplit(). Der LinearSplit() unterscheidet sich vom QuadraticSplit() nur darin, dass dieser die Sortierung der ausstehenden Polygone nur einmal am Anfang durchführt. Dies sorgt zwar für eine bessere Laufzeit, die daraus resultierenden Aufteilungen werden im Vergleich zum QuadraticSplit() allerdings nie besser sein. Der CubicSplit hingegen verspricht, dass nach dem Flächenkriterium die besten Aufteilungen generiert wird auf Kosten der längeren Bearbeitungszeit. Der QuadraticSplit() ist somit ein Kompromiss zwischen Effizienz und Qualität. Dennoch gibt es Situationen, die zu ungünstigen Verteilungen führen. Ein markantes Beispiel ist in \Cref{fig:beispiel-quadratic-split} dargestellt: Die Kombination von kleinen bzw. schmalen Geometrien, die zwar weit entfernt von einanderliegen und doch in ihrer Lage auf identischer Anhöhe liegen, sorgen für sehr schmale, lange Partitionen, dessen \asc{MBR} mit einer sehr hohen Wahrscheilichkeit mit der anderen Partition überlappen.
- 
+Der Grund, wieso die Methode QuadraticSplit() heißt und nicht einfach Split(), liegt daran, dass verschiedene Umsetzungen für die Aufteilung existieren, die eine Unterschiedliche Performance aufweisen. QuadraticSplit() deutet darauf hin, dass die Methode abhängig von der Anzahl Polygone eine quadratische Laufzeit besitzt. Neben dem QuadraticSplit() existieren noch der LinearSplit(), CubicSplit() und der GreenesSplit(). Der LinearSplit() unterscheidet sich vom QuadraticSplit() nur darin, dass dieser die Sortierung der ausstehenden Polygone nur einmal am Anfang durchführt. Dies sorgt zwar für eine bessere Laufzeit, die daraus resultierenden Aufteilungen werden im Vergleich zum QuadraticSplit() allerdings nie besser sein. Der CubicSplit hingegen verspricht, dass nach dem Flächenkriterium die besten Aufteilungen generiert wird auf Kosten der längeren Bearbeitungszeit. Der QuadraticSplit() ist somit ein Kompromiss zwischen Effizienz und Qualität. Dennoch gibt es Situationen, die zu ungünstigen Verteilungen führen. Ein markantes Beispiel ist in \Cref{fig:problem-tiny-object} dargestellt: Die Kombination von kleinen bzw. schmalen Geometrien, die zwar weit entfernt von einanderliegen und doch in ihrer Lage auf identischer Anhöhe liegen, sorgen für sehr schmale, lange Partitionen, dessen \asc{MBR} mit einer sehr hohen Wahrscheilichkeit mit der anderen Partition überlappen.
+\begin{figure}[H]
+		\begin{center}
+		\includegraphics[width=1.0\textwidth ]{004_Problem_Kleine_Objekte.pdf}
+		\caption{Problem der kleinen Objekte beim QuadraticSplit. Links: Durch die selbe Y-Achsen-Anhöhe zwischen den beiden schmalen Objekten entsteht ein sehr schmales \asc{MBR}. Rechts: Ergebnis des Splits auf Basis des initalen, schmalen \asc{MBR}s (\acs{M}=3, \acs{m}=2)}
+		\label{fig:problem-tiny-object}
+		\end{center}
+	\end{figure} 
 
 \subsection{GreenesSplit()}
-In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bekannten Split-Methoden vorgestellt. Die Idee besteht darin, die Polygone nach der jeweiligen Achse zu sortieren, in der die größte Ausbreitung ermittelt wird. Auf Basis dieser Sortierung hat man nun eine Reihe Splits, aus dem man dann den Favoriten zu ermitteln hat und übernimmt.
+In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bekannten Split-Methoden vorgestellt. Die Idee besteht darin, die Polygone nach der jeweiligen Achse zu sortieren, in der die größte Ausbreitung ermittelt wird. Auf Basis dieser Sortierung hat man nun eine Reihe Splits, aus dem man dann den Favoriten zu ermitteln hat und übernimmt. Siehe: \Cref{fig:beispiel-greenes-split}
+
+\begin{figure}[H]
+		\begin{center}
+		\includegraphics[width=1.0\textwidth ]{005_Beispiel_Greenes_Split.pdf}
+		\caption{Beispiel für GreenesSplit. Links: Rechts:(\acs{M}=3, \acs{m}=2)}
+		\label{fig:beispiel-greenes-split}
+		\end{center}
+	\end{figure} 
 
 % section prinzipien_eines_r_baums (end)
 
@@ -205,7 +219,12 @@ In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bek
 \section{Der R*-Baum} % (fold)
 \label{sec:rstar_tree}
 
+\subsection{ChooseSubTree()}
 
+\subsection{Split()}
+
+\subsection{ForcedReinsert()}
+\label{sec:rstar_reinsert}
 
 % section rstar_tree (end)
 

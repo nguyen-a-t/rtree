@@ -16,6 +16,9 @@
 \usepackage{microtype}						  % verbesserter Randausgleich
 \usepackage{pdfpages}
 
+\usepackage{array}
+\usepackage{tabularx}								% for more convinient tables
+
 \usepackage{quoting}
 \usepackage[
 	babel,
@@ -183,18 +186,35 @@
 		\label{fig:vergleich-quad-star}
 	\end{figure}
 
-	Der R*-Baum betreibt sehr hohen Aufwand beim Hinzufügen und Löschen von Elementen, um eine gute Struktur zu bewahren. \Cref{fig:vergleich-quad-star} zeigt den gleichen Datensatz (mit gleicher Einfügereihenfolge), aber unterschiedlichen Split-Verfahren. Das Beispiel zeigt, wie positiv sich der Mehraufwand auswirkt. Mit R*-Split überschneiden sich die Verzeichnisrechtecke deutlich weniger, was schnellere Abfragen ermöglicht.
+	Der R*-Baum betreibt sehr hohen Aufwand beim Hinzufügen und Löschen von Elementen, um eine gute Struktur zu bewahren. \Cref{fig:vergleich-quad-star} zeigt den gleichen Datensatz (mit gleicher Einfügereihenfolge), aber unterschiedlichen Split-Verfahren. Das Beispiel zeigt, wie positiv sich der Mehraufwand auswirkt. Mit R*-Split überschneiden sich die Verzeichnisrechtecke deutlich weniger, was schnellere Abfragen ermöglichen sollte und in den folgenden Benchmarks bestätigt wird.
 
 	\subsubsection{Benchmarks} % (fold)
 	\label{ssub:benchmarks}
+
+	Die folgenden Benchmarks wurden von Beckmann, et.al. im Rahmen der ursprünglichen R*-Baum Veröffentlichung durchgeführt. Verglichen werden der originale R-Baum mit linearem, quadratischem und Greene-Split und der hier beschriebene R*-Baum. Die Parameter sind die für die jeweiligen Implementationen optimal gewählt \citep[vgl.][328]{Kriegel:2008}\footnote{$m=20\%$ (von $M$ maximalen Einträgen) für den linearen Split, quadratischer Split: $m=40\%$, Greene's-Split: $m=40\%$ und R*-Split: $m=40\%$}.
+
+	Als Testdaten wurden fünf über verschiedene Verteilungen automatisch generierte Datensätze und ein realer Datensatz aus Höhenlinien gewählt (für eine genaue Beschreibung siehe \cite[328]{Kriegel:2008}). Die Daten wurden mit jeweils sieben verschiedenen Anfragen durchsucht und die Speicherzugriffe gemessen. Die Anfragen bestanden aus:
+	\begin{description}
+		\item[Point] Punkt-Anfrage ($1000\times$, gleich-verteilt im Raum)
+		\item[Intersection] Suche nach allen Daten, welche die unterschiedlich großen Anfragerechtecke schneiden (je $100\times$, gleich-verteilt)
+		\item[Contains] Suche nach allen Daten, die in den Anfragerechtecken komplett enthalten sind (ebenfalls je $100\times$, gleich-verteilt)
+	\end{description}
+
+	\begin{table}
+	\caption{Alle Angaben sind relativ zu den Speicherzugriffen des R*-Baums.}
+	\begin{tabularx}{\textwidth}{X|X|X|X|X|X|X|X}
+		Point & \multicolumn{4}{c|}{Intersection} & \multicolumn{2}{c}{Contains \& Insert} \\
+		 & $0.001\%$ & $0.01\%$ & $0.1\%$ & $1\%$ & $0.001\%$ & $0.01\%$ & 
+	\end{tabularx}
+	\end{table}
 	
 	% subsubsection benchmarks (end)
 
 	\subsubsection{Weiterentwicklungen} % (fold)
 	\label{ssub:weiterentwicklungen}
 
-	Die Effizienz des R*-Baums nimmt ab fünf Dimensionen rapide ab \citep[vgl][29]{Kriegel:2008}. Um auch höher dimensionalen Daten gerecht zu werden, existieren daher zahlreiche Weiterentwicklung. Dazu gehört, wie eingangs erwähnt, der X-Baum, welcher darauf ausgelegt ist auch in höheren Dimensionen Überlappungen zu vermeiden \citep[vgl.]{Kriegel:1996}.
-	Andere Indizes bilden Näherungen der tatsächlichen Daten und führen Anfragen zunächst auf diesen aus (\emph{\enquote{Vector Approximation}}, siehe \cite{Gibas:2008} oder \cite{Daoudi:2008}).
+	Die Effizienz des R*-Baums nimmt ab fünf Dimensionen rapide ab \citep[vgl.][29]{Kriegel:2008}. Um auch höher dimensionalen Daten gerecht zu werden, existieren daher zahlreiche Weiterentwicklungen. Dazu gehört, wie eingangs erwähnt, der X-Baum, welcher darauf ausgelegt ist auch in höheren Dimensionen Überlappungen zu vermeiden \citep[vgl.][]{Kriegel:1996}.
+	Andere Indizes bilden Näherungen der tatsächlichen Daten und führen Anfragen zunächst auf diesen aus (\emph{\enquote{Vector Approximation}}, siehe \cite{Gibas:2008} oder \cite{Daoudi:2008}). So wird der Zugriff auf Daten mit über 100 Dimensionen vergleichsweise effizient ermöglicht \citep[vgl.][]{Daoudi:2008}.
 	
 	% subsubsection weiterentwicklungen (end)
 

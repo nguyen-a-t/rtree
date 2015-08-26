@@ -12,10 +12,10 @@
 
 \usepackage[english, ngerman]{babel}
 \usepackage[utf8]{inputenc}			    % for working umlaute
-\usepackage[T1]{fontenc}            % wichtig fÃ¼r Trennung von WÃ¶rtern mit Umlauten
+\usepackage[T1]{fontenc}            % wichtig fÃür Trennung von Wörtern mit Umlauten
 \usepackage{microtype}						  % verbesserter Randausgleich
 \usepackage{pdfpages}
-\usepackage{lmodern}		%fuer schoenen Text in pdf-Abbildungen
+\usepackage{lmodern}								%fuer schoenen Text in pdf-Abbildungen
 
 \usepackage{array}
 \usepackage{tabularx}								% for more convinient tables
@@ -33,13 +33,13 @@
 % quellen mangement
 \usepackage[
 	backend=biber,
-	natbib=true,								% damit \citep{} etc. verwendet werden kÃ¶nnen
+	natbib=true,								% damit \citep{} etc. verwendet werden können
 	style=authoryear-icomp,    	% Zitierstil
 	isbn=false,                	% ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
 	pagetracker=true,          	% ebd. bei wiederholten Angaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
 	maxbibnames=10,            	% maximale Namen, die im Literaturverzeichnis angezeigt werden
 	maxcitenames=2,            	% maximale Namen, die im Text angezeigt werden, ab 2 wird u.a. nach den ersten Autor angezeigt
-	autocite=inline,           	% regelt Aussehen fÃ¼r \autocite (inline=\parancite)
+	autocite=inline,           	% regelt Aussehen fÃür \autocite (inline=\parancite)
 	block=space,               	% kleiner horizontaler Platz zwischen den Feldern
 	backref=true,              	% Seiten anzeigen, auf denen die Referenz vorkommt
 	backrefstyle=three+,       	% fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
@@ -52,7 +52,7 @@
 
 \bibliography{_literatur}
 
-\usepackage[]{acronym}																% fÃ¼r AbkÃ¼rzungen
+\usepackage[]{acronym}																% für Abkürzungen
 
 \usepackage{hyperref}																	% for hyperlink references
 \usepackage[ngerman, nameinlink]{cleveref}						% for naming references
@@ -247,29 +247,52 @@ In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bek
 	\subsubsection{Benchmarks} % (fold)
 	\label{ssub:benchmarks}
 
-	Die folgenden Benchmarks wurden von Beckmann, et.al. im Rahmen der ursprünglichen R*-Baum Veröffentlichung durchgeführt. Verglichen werden der originale R-Baum mit linearem, quadratischem und Greene-Split und der hier beschriebene R*-Baum. Die Parameter sind die für die jeweiligen Implementationen optimal gewählt \citep[vgl.][328]{Kriegel:2008}\footnote{$m=20\%$ (von $M$ maximalen Einträgen) für den linearen Split, quadratischer Split: $m=40\%$, Greene's-Split: $m=40\%$ und R*-Split: $m=40\%$}.
+	Die folgenden Benchmarks wurden von Beckmann, et.al. im Rahmen der ursprünglichen R*-Baum Veröffentlichung durchgeführt. Verglichen werden der originale R-Baum mit linearem, quadratischem und Greene-Split und der hier beschriebene R*-Baum. Die Parameter sind die für die jeweiligen Implementationen optimal gewählt\footnote{$m=20\%$ (von $M$ maximalen Einträgen) für den linearen Split, quadratischer Split: $m=40\%$, Greene's-Split: $m=40\%$ und R*-Split: $m=40\%$} \citep[vgl.][328]{Beckmann:1990}.
 
-	Als Testdaten wurden fünf über verschiedene Verteilungen automatisch generierte Datensätze und ein realer Datensatz aus Höhenlinien gewählt (für eine genaue Beschreibung siehe \cite[328]{Kriegel:2008}). Die Daten wurden mit jeweils sieben verschiedenen Anfragen durchsucht und die Speicherzugriffe gemessen. Die Anfragen bestanden aus:
+	Als Testdaten wurden fünf über verschiedene Verteilungen automatisch generierte Datensätze und ein realer Datensatz aus Höhenlinien gewählt (für eine genaue Beschreibung siehe \cite[328]{Beckmann:1990}). Die Daten wurden mit jeweils sieben verschiedenen Anfragen durchsucht und die Speicherzugriffe gemessen. Die Anfragen bestanden aus:
 	\begin{description}
 		\item[Point] Punkt-Anfrage ($1000\times$, gleich-verteilt im Raum)
-		\item[Intersection] Suche nach allen Daten, welche die unterschiedlich großen Anfragerechtecke schneiden (je $100\times$, gleich-verteilt)
-		\item[Contains] Suche nach allen Daten, die in den Anfragerechtecken komplett enthalten sind (ebenfalls je $100\times$, gleich-verteilt)
+		\item[Intersection] Suche nach allen Daten, welche die unterschiedlich großen Anfragerechtecke schneiden (je $100\times$, gleich-verteilt) (Größenangaben relativ zu der Größe des Testdatensatzes)
+		\item[Contains] Suche nach allen Daten, die in den Anfragerechtecken komplett enthalten sind (ebenfalls je $100\times$, gleich-verteilt) (Größenangaben relativ zu der Größe des Testdatensatzes)
 	\end{description}
 
 	\begin{table}
-	\caption{Alle Angaben sind relativ zu den Speicherzugriffen des R*-Baums.}
-	\begin{tabularx}{\textwidth}{X|X|X|X|X|X|X|X}
-		Point & \multicolumn{4}{c|}{Intersection} & \multicolumn{2}{c}{Contains \& Insert} \\
-		 & $0.001\%$ & $0.01\%$ & $0.1\%$ & $1\%$ & $0.001\%$ & $0.01\%$ & 
+	\caption{Vergleich der Bäume bei den verschiedenen Anfragen, gemittelt über die sechs Testdatensätze. Alle Angaben (bis auf Insert) sind relativ zu den Speicherzugriffen des R*-Baums. Insert zeigt die durchschnittlichen Speicherzugriffe beim Einfügen.}
+	\label{tab:benchmark-queries}
+	\begin{tabularx}{\textwidth}{l|X|X|X|X|X|X|X|X}
+		& Point & \multicolumn{4}{c|}{Intersection} & \multicolumn{2}{c|}{Contains} & Insert \\
+		& & $0.001\%$ & $0.01\%$ & $0.1\%$ & $1\%$ & $0.001\%$ & $0.01\%$ & \\
+		\hline \hline
+		linear	& $251.9$ & $242.2$ & $231.1$ & $189.8$ & $152.1$ & $256.5$ & $274.1$ & $12.63$	\\ \hline
+		quad.		&	$135.3$ & $132.4$ & $132.8$ & $126.4$ & $117.6$ & $131.3$ & $137.0$ & $7.76$	\\ \hline
+		Greene	& $148.7$ & $143.9$ & $148.0$ & $137.7$ & $121.3$ & $145.0$ & $155.2$ & $7.67$	\\ \hline
+		R*			& $100$		& $100$		& $100$		& $100$		& $100$		& $100$		& $100$		& $6.13$
 	\end{tabularx}
 	\end{table}
+
+	\begin{table}
+	\caption{Performance der Bäume im Vergleich, hier gemittelt über alle sieben Anfragetypen. Alle Angaben sind relativ zu den Speicherzugriffen des R*-Baums.}
+	\label{tab:benchmark-data}
+	\begin{tabularx}{\textwidth}{l|X|X|X|X|X|X|X|X}
+		& Gauß-Vert. & Cluster & Mix-Gleichvert. & Parzelliert & Höhenlinien & Gleichvert. \\
+		\hline \hline
+		linear	& $164.3$ & $216.0$ & $308.1$ & $247.2$ & $227.2$ & $206.6$	\\ \hline
+		quad.		&	$112.9$ & $153.9$ & $121.8$ & $128.1$ & $144.5$ & $121.1$	\\ \hline
+		Greene	& $123.1$ & $147.1$ & $115.5$ & $192.4$ & $144.2$ & $134.8$	\\ \hline
+		R*			& $100$		& $100$		& $100$		& $100$		& $100$		& $100$
+	\end{tabularx}
+	\end{table}
+
+	\Cref{tab:benchmark-queries} und \Cref{tab:benchmark-data} zeigen die, auf unterschiedliche Art aggregierten, Testergebnisse. Die bessere Performance des R*-Baums ist für alle verschiedenen Anfragen und Testdaten klar ersichtlich. Anzumerken ist, dass lediglich zwei dimensionale Daten verwendet wurden \citep[328][vgl.]{Beckmann:1990}. Das entspricht in den meisten Fällen den Anforderungen an Geodatenbanken. Für andere Anwendungsfälle wären weitere Tests notwendig.
+
+	Interessant ist, dass trotz der Verwendung von Forced Reinsert der R*-Baum auch beim Einfügen von neuen Elementen schneller ist als herkömmliche Varianten.
 	
 	% subsubsection benchmarks (end)
 
 	\subsubsection{Weiterentwicklungen} % (fold)
 	\label{ssub:weiterentwicklungen}
 
-	Die Effizienz des R*-Baums nimmt ab fünf Dimensionen rapide ab \citep[vgl.][29]{Kriegel:2008}. Um auch höher dimensionalen Daten gerecht zu werden, existieren daher zahlreiche Weiterentwicklungen. Dazu gehört, wie eingangs erwähnt, der X-Baum, welcher darauf ausgelegt ist auch in höheren Dimensionen Überlappungen zu vermeiden \citep[vgl.][]{Kriegel:1996}.
+	Die Effizienz des R*-Baums nimmt ab fünf Dimensionen rapide ab \citep[vgl.][29]{Kriegel:1996}. Um auch höher dimensionalen Daten gerecht zu werden, existieren daher zahlreiche Weiterentwicklungen. Dazu gehört, wie eingangs erwähnt, der X-Baum, welcher darauf ausgelegt ist auch in höheren Dimensionen Überlappungen zu vermeiden \citep[vgl.][]{Kriegel:1996}.
 	Andere Indizes bilden Näherungen der tatsächlichen Daten und führen Anfragen zunächst auf diesen aus (\emph{\enquote{Vector Approximation}}, siehe \cite{Gibas:2008} oder \cite{Daoudi:2008}). So wird der Zugriff auf Daten mit über 100 Dimensionen vergleichsweise effizient ermöglicht \citep[vgl.][]{Daoudi:2008}.
 	
 	% subsubsection weiterentwicklungen (end)

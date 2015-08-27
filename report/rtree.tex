@@ -220,7 +220,7 @@ In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bek
 
 \section{Der R*-Baum} % (fold)
 \label{sec:rstar_tree}
-In der bisher vorgestellten R-Baum-Variante war das einzigste Optimierungskriterium die Minierung Flächeninhalte der Partitionen. In \Cref{sec:optimierunskriterien} sind weitere potenzielle Kriterien gelistet, die während des Einfüge-Verfahrens berücksichtigt werden könnten. Diese besagten Kriterien sind in den Methoden vom R*-Baum mit berücksichtigt und sind in den nächsten Abschnitten erklärt.
+In der bisher vorgestellten R-Baum-Variante war das einzigste Optimierungskriterium die Minierung Flächeninhalte der Partitionen. In \Cref{sec:optimierungskriterien} sind weitere potenzielle Kriterien gelistet, die während des Einfüge-Verfahrens berücksichtigt werden könnten. Diese besagten Kriterien sind in den Methoden vom R*-Baum mit berücksichtigt und sind in den nächsten Abschnitten erklärt.
 
 \subsection{ChooseSubTree()}
 Die ChooseSubTree()-Methode vom R*-Baum unterscheidet sich nicht erheblich von der bisher bekannten R-Baum-Variante. Der Unterschied zwischen den beiden rekursiven Methoden befindet sich im Entscheidungskriterium in der letzten Partitionsebene. Hier wird anstelle des Flächenkriteriums zuerst das Überlappungskriterium berücksichtigt. Der Grund, wieso nicht in allen Partitionsebenen nach dem Überlappungskriterium berücksichtigt werden, ist der Rechenaufwand, der für das Überpfüfen von Überlappungen benötigt wird. Der Aufwand ist quadratisch in Relation zu den vorhandenen Partitionen, zwischen denen gewählt werden muss. 

@@ -1,15 +1,15 @@
 [0] Config.pm:320> INFO - This is Biber 1.9
 [1] Config.pm:323> INFO - Logfile is 'rtree.blg'
-[96] biber-darwin:277> INFO - === Wed Aug 26, 2015, 16:50:27
-[97] Biber.pm:333> INFO - Reading 'rtree.bcf'
-[240] Biber.pm:632> INFO - Using all citekeys in bib section 0
-[297] Biber.pm:3051> INFO - Processing section 0
-[339] Biber.pm:3189> INFO - Looking for bibtex format file '_literatur.bib' for section 0
-[342] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
-[343] bibtex.pm:864> INFO - Found BibTeX data source '_literatur.bib'
-[542] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[542] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[542] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'de-DE'
-[543] Biber.pm:2932> INFO - No sort tailoring available for locale 'de-DE'
-[582] bbl.pm:517> INFO - Writing 'rtree.bbl' with encoding 'UTF-8'
-[585] bbl.pm:606> INFO - Output to rtree.bbl
+[95] biber-darwin:277> INFO - === Thu Aug 27, 2015, 13:38:23
+[95] Biber.pm:333> INFO - Reading 'rtree.bcf'
+[326] Biber.pm:632> INFO - Using all citekeys in bib section 0
+[384] Biber.pm:3051> INFO - Processing section 0
+[438] Biber.pm:3189> INFO - Looking for bibtex format file '_literatur.bib' for section 0
+[441] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
+[442] bibtex.pm:864> INFO - Found BibTeX data source '_literatur.bib'
+[637] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[637] UCollate.pm:66> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[637] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'de-DE'
+[637] Biber.pm:2932> INFO - No sort tailoring available for locale 'de-DE'
+[680] bbl.pm:517> INFO - Writing 'rtree.bbl' with encoding 'UTF-8'
+[682] bbl.pm:606> INFO - Output to rtree.bbl

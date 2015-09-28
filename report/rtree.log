@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  27 AUG 2015 11:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  28 SEP 2015 20:24
 entering extended mode
 **rtree.tex
 (C:\git\rtree\report\rtree.tex
@@ -1191,39 +1191,40 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 162.
                                                   \fi \fi 
 l.162 	\end{figure}
                     <C:/git/rtree/report/img/003_Beispiel_Quadratic_Split_1.pdf
->] <./img/005_Beispiel_Greenes_Split.pdf, id=158, 563.10374pt x 221.82875pt>
-File: ./img/005_Beispiel_Greenes_Split.pdf Graphic file (type pdf)
-
-<use ./img/005_Beispiel_Greenes_Split.pdf>
-Package pdftex.def Info: ./img/005_Beispiel_Greenes_Split.pdf used on input lin
-e 169.
-(pdftex.def)             Requested size: 347.12354pt x 136.7471pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 174.
+>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 166.
 
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.174 
+l.166 
        <C:/git/rtree/report/img/004_Problem_Kleine_Objekte.pdf>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 209.
+<./img/005_Beispiel_Greenes_Split.pdf, id=168, 563.10374pt x 221.82875pt>
+File: ./img/005_Beispiel_Greenes_Split.pdf Graphic file (type pdf)
+
+<use ./img/005_Beispiel_Greenes_Split.pdf>
+Package pdftex.def Info: ./img/005_Beispiel_Greenes_Split.pdf used on input lin
+e 169.
+(pdftex.def)             Requested size: 347.12354pt x 136.7471pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 197.
 
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.209 
-       <C:/git/rtree/report/img/005_Beispiel_Greenes_Split.pdf>]
+l.197 	\subsubsection
+                     {Summe der Kantenlänge minimieren} % (fold) <C:/git/rtree
+/report/img/005_Beispiel_Greenes_Split.pdf>]
 
 LaTeX Warning: Reference `sec:optimierunskriterien' on page 1 undefined on inpu
 t line 223.
 
-<./img/vergleich-quad-star.png, id=190, 1229.59375pt x 602.25pt>
+Package cleveref Info: loaded `ngerman' language definitions on input line 231.
+
+[7] <./img/vergleich-quad-star.png, id=199, 1229.59375pt x 602.25pt>
 File: ./img/vergleich-quad-star.png Graphic file (type png)
 
 <use ./img/vergleich-quad-star.png>
@@ -1243,36 +1244,33 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 245.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 245.
-Package cleveref Info: loaded `ngerman' language definitions on input line 247.
-
- [7]
-Package cleveref Info: loaded `ngerman' language definitions on input line 257.
+Package cleveref Info: loaded `ngerman' language definitions on input line 255.
 
  [8pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.257 	\begin{description}
-                           <C:/git/rtree/report/img/vergleich-quad-star.png>]
+l.255 
+       <C:/git/rtree/report/img/vergleich-quad-star.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 287--287
 []|\T1/lmr/m/n/9 (+20) Mix-
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 301.
+Package cleveref Info: loaded `ngerman' language definitions on input line 291.
 
 [9pdfTeX warning (ext4): destination with the same identifier (name{table.1.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.301 
+l.291 
       pdfTeX warning (ext4): destination with the same identifier (name{table.1
 .2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.301 
+l.291 
       ]
 Package cleveref Info: loaded `ngerman' language definitions on input line 310.
 
@@ -1296,33 +1294,46 @@ Package rerunfilecheck Info: File `rtree.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to 'rtree.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 17527 strings out of 493921
- 291045 string characters out of 3147278
- 805746 words of memory out of 3000000
- 20344 multiletter control sequences out of 15000+200000
- 67737 words of font info for 115 fonts, out of 3000000 for 9000
+ 17531 strings out of 493921
+ 291074 string characters out of 3147278
+ 806887 words of memory out of 3000000
+ 20346 multiletter control sequences out of 15000+200000
+ 67719 words of font info for 115 fonts, out of 3000000 for 9000
  845 hyphenation exceptions out of 8191
- 39i,11n,51p,1893b,2017s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
-.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/lm/lmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi9.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/lm/lmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/l
-m/lmtt9.pfb>
-Output written on rtree.pdf (11 pages, 404239 bytes).
+ 39i,11n,51p,1990b,2017s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{page.15} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{page.14} has been referenced but does not exist, re
+placed by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiK
+TeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
+/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.e
+nc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/lm/lmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/l
+m/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi9.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/lm/lmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/
+lmtt9.pfb>
+Output written on rtree.pdf (11 pages, 405483 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
+ 333 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
  20615 words of extra memory for PDF output out of 20736 (max. 10000000)
 

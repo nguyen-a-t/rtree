@@ -2244,14 +2244,16 @@
     <bcf:citekey order="5">Beckmann:1990</bcf:citekey>
     <bcf:citekey order="6">Beckmann:1990</bcf:citekey>
     <bcf:citekey order="7">Beckmann:1990</bcf:citekey>
-    <bcf:citekey order="8">Beckmann:1990</bcf:citekey>
-    <bcf:citekey order="9">Beckmann:1990</bcf:citekey>
+    <bcf:citekey order="8">Kriegel:2008</bcf:citekey>
+    <bcf:citekey order="9">Kriegel:2008</bcf:citekey>
     <bcf:citekey order="10">Beckmann:1990</bcf:citekey>
-    <bcf:citekey order="11">Kriegel:1996</bcf:citekey>
-    <bcf:citekey order="12">Kriegel:1996</bcf:citekey>
-    <bcf:citekey order="13">Gibas:2008</bcf:citekey>
-    <bcf:citekey order="14">Daoudi:2008</bcf:citekey>
-    <bcf:citekey order="15">Daoudi:2008</bcf:citekey>
+    <bcf:citekey order="11">Beckmann:1990</bcf:citekey>
+    <bcf:citekey order="12">Beckmann:1990</bcf:citekey>
+    <bcf:citekey order="13">Kriegel:1996</bcf:citekey>
+    <bcf:citekey order="14">Kriegel:1996</bcf:citekey>
+    <bcf:citekey order="15">Gibas:2008</bcf:citekey>
+    <bcf:citekey order="16">Daoudi:2008</bcf:citekey>
+    <bcf:citekey order="17">Daoudi:2008</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">

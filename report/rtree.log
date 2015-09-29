@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  29 SEP 2015 11:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  29 SEP 2015 11:55
 entering extended mode
 **rtree.tex
 (C:\git\rtree\report\rtree.tex
@@ -1192,42 +1192,41 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 162.
 l.162 	\end{figure}
                     <C:/git/rtree/report/img/003_Beispiel_Quadratic_Split_1.pdf
 >]
-Package cleveref Info: loaded `ngerman' language definitions on input line 166.
+Package cleveref Info: loaded `ngerman' language definitions on input line 167.
 
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.166 
+l.167 
        <C:/git/rtree/report/img/004_Problem_Kleine_Objekte.pdf>]
-<./img/005_Beispiel_Greenes_Split.pdf, id=168, 563.10374pt x 221.82875pt>
+<./img/005_Beispiel_Greenes_Split.pdf, id=169, 563.10374pt x 221.82875pt>
 File: ./img/005_Beispiel_Greenes_Split.pdf Graphic file (type pdf)
 
 <use ./img/005_Beispiel_Greenes_Split.pdf>
 Package pdftex.def Info: ./img/005_Beispiel_Greenes_Split.pdf used on input lin
-e 169.
+e 170.
 (pdftex.def)             Requested size: 347.12354pt x 136.7471pt.
-Package cleveref Info: loaded `ngerman' language definitions on input line 197.
+Package cleveref Info: loaded `ngerman' language definitions on input line 195.
 
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.197 	\subsubsection
-                     {Summe der Kantenlänge minimieren} % (fold) <C:/git/rtree
-/report/img/005_Beispiel_Greenes_Split.pdf>]
-Package cleveref Info: loaded `ngerman' language definitions on input line 227.
+l.195 
+       <C:/git/rtree/report/img/005_Beispiel_Greenes_Split.pdf>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 228.
 
  [7]
-<./img/vergleich-quad-star.png, id=200, 1229.59375pt x 602.25pt>
+<./img/vergleich-quad-star.png, id=202, 1229.59375pt x 602.25pt>
 File: ./img/vergleich-quad-star.png Graphic file (type png)
 
 <use ./img/vergleich-quad-star.png>
-Package pdftex.def Info: ./img/vergleich-quad-star.png used on input line 244.
+Package pdftex.def Info: ./img/vergleich-quad-star.png used on input line 245.
 (pdftex.def)             Requested size: 347.12354pt x 170.01646pt.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 245.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 246.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
@@ -1238,54 +1237,60 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 245.
+(Font)              <9> on input line 246.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 245.
-Package cleveref Info: loaded `ngerman' language definitions on input line 250.
+(Font)              <6> on input line 246.
 
- [8pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6
-}) has been already used, duplicate ignored
+Underfull \vbox (badness 3179) has occurred while \output is active []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 249.
+
+ [8]
+Package cleveref Info: loaded `ngerman' language definitions on input line 262.
+
+
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6}
+) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.250 
-       <C:/git/rtree/report/img/vergleich-quad-star.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 287--287
+l.262 	\end{description}
+                         <C:/git/rtree/report/img/vergleich-quad-star.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 []|\T1/lmr/m/n/9 (+20) Mix-
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 292.
+Package cleveref Info: loaded `ngerman' language definitions on input line 302.
 
-[9pdfTeX warning (ext4): destination with the same identifier (name{table.1.1})
- has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.292 	I
-        nteressant ist, dass trotz der Verwendung von Forced Reinsert der R*...
-]
-Package cleveref Info: loaded `ngerman' language definitions on input line 310.
-
- [10pdfTeX warning (ext4): destination with the same identifier (name{table.1.2
-}) has been already used, duplicate ignored
+[10pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}
+) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.310 \newpage
-              ]
+l.302 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.1
+.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.302 
+      ]
+Package cleveref Info: loaded `ngerman' language definitions on input line 311.
+
+ [11]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
-Package cleveref Info: loaded `ngerman' language definitions on input line 340.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 341.
+Package cleveref Info: loaded `ngerman' language definitions on input line 341.
 
- [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
+ [12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 341.
  (C:\git\rtree\report\rtree.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 27.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 340.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 341.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 341.
 Package rerunfilecheck Info: File `rtree.out' has not changed.
 (rerunfilecheck)             Checksum: B291F5BB7348F32571870C5D7A673D89;881.
 
@@ -1299,13 +1304,13 @@ Package biblatex Warning: Please rerun LaTeX.
 Package logreq Info: Writing requests to 'rtree.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 17533 strings out of 493921
- 291078 string characters out of 3147278
- 807887 words of memory out of 3000000
- 20346 multiletter control sequences out of 15000+200000
- 67802 words of font info for 116 fonts, out of 3000000 for 9000
+ 17534 strings out of 493921
+ 291131 string characters out of 3147278
+ 804961 words of memory out of 3000000
+ 20350 multiletter control sequences out of 15000+200000
+ 67636 words of font info for 114 fonts, out of 3000000 for 9000
  845 hyphenation exceptions out of 8191
- 39i,11n,51p,1990b,2017s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,11n,51p,1990b,2037s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{page.15} has been referenced but does not exist, 
 replaced by a fixed one
 
@@ -1313,8 +1318,8 @@ pdfTeX warning (dest): name{page.14} has been referenced but does not exist, re
 placed by a fixed one
 
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiK
-TeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
-/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.e
+TeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
+ps/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.e
 nc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/lm/lmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/l
@@ -1326,9 +1331,9 @@ public/lm/lmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb>
 /MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/
 lmtt9.pfb>
-Output written on rtree.pdf (11 pages, 406190 bytes).
+Output written on rtree.pdf (12 pages, 408100 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
  20615 words of extra memory for PDF output out of 20736 (max. 10000000)
 

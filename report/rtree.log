@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  28 SEP 2015 20:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.14)  29 SEP 2015 11:15
 entering extended mode
 **rtree.tex
 (C:\git\rtree\report\rtree.tex
@@ -1218,13 +1218,10 @@ Package cleveref Info: loaded `ngerman' language definitions on input line 197.
 l.197 	\subsubsection
                      {Summe der Kantenlänge minimieren} % (fold) <C:/git/rtree
 /report/img/005_Beispiel_Greenes_Split.pdf>]
+Package cleveref Info: loaded `ngerman' language definitions on input line 227.
 
-LaTeX Warning: Reference `sec:optimierunskriterien' on page 1 undefined on inpu
-t line 223.
-
-Package cleveref Info: loaded `ngerman' language definitions on input line 231.
-
-[7] <./img/vergleich-quad-star.png, id=199, 1229.59375pt x 602.25pt>
+ [7]
+<./img/vergleich-quad-star.png, id=200, 1229.59375pt x 602.25pt>
 File: ./img/vergleich-quad-star.png Graphic file (type png)
 
 <use ./img/vergleich-quad-star.png>
@@ -1244,37 +1241,38 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 245.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 245.
-Package cleveref Info: loaded `ngerman' language definitions on input line 255.
+Package cleveref Info: loaded `ngerman' language definitions on input line 250.
 
  [8pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.255 
+l.250 
        <C:/git/rtree/report/img/vergleich-quad-star.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 287--287
 []|\T1/lmr/m/n/9 (+20) Mix-
  []
 
-Package cleveref Info: loaded `ngerman' language definitions on input line 291.
+Package cleveref Info: loaded `ngerman' language definitions on input line 292.
 
 [9pdfTeX warning (ext4): destination with the same identifier (name{table.1.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.291 
-      pdfTeX warning (ext4): destination with the same identifier (name{table.1
-.2}) has been already used, duplicate ignored
+l.292 	I
+        nteressant ist, dass trotz der Verwendung von Forced Reinsert der R*...
+]
+Package cleveref Info: loaded `ngerman' language definitions on input line 310.
+
+ [10pdfTeX warning (ext4): destination with the same identifier (name{table.1.2
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.291 
-      ]
-Package cleveref Info: loaded `ngerman' language definitions on input line 310.
-
- [10]
+l.310 \newpage
+              ]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1292,9 +1290,6 @@ Package rerunfilecheck Info: File `rtree.out' has not changed.
 (rerunfilecheck)             Checksum: B291F5BB7348F32571870C5D7A673D89;881.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
@@ -1304,11 +1299,11 @@ Package biblatex Warning: Please rerun LaTeX.
 Package logreq Info: Writing requests to 'rtree.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 17531 strings out of 493921
- 291074 string characters out of 3147278
- 806887 words of memory out of 3000000
+ 17533 strings out of 493921
+ 291078 string characters out of 3147278
+ 807887 words of memory out of 3000000
  20346 multiletter control sequences out of 15000+200000
- 67719 words of font info for 115 fonts, out of 3000000 for 9000
+ 67802 words of font info for 116 fonts, out of 3000000 for 9000
  845 hyphenation exceptions out of 8191
  39i,11n,51p,1990b,2017s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{page.15} has been referenced but does not exist, 
@@ -1331,9 +1326,9 @@ public/lm/lmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb>
 /MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/
 lmtt9.pfb>
-Output written on rtree.pdf (11 pages, 405483 bytes).
+Output written on rtree.pdf (11 pages, 406190 bytes).
 PDF statistics:
- 333 PDF objects out of 1000 (max. 8388607)
+ 334 PDF objects out of 1000 (max. 8388607)
  58 named destinations out of 1000 (max. 500000)
  20615 words of extra memory for PDF output out of 20736 (max. 10000000)
 

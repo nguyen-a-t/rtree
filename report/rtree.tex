@@ -229,6 +229,13 @@ Die ChooseSubTree()-Methode vom R*-Baum unterscheidet sich nicht erheblich von d
 \subsection{Split()}
 Die Split()-Methode besitzt die selbe Herangehensweise, wie der bereits erwähnte GreenesSplit() in \Cref{sec:grennes_split}. In beiden Methoden wird eine Trenn-Achse gewählt, die Partitionen sortiert und anschließend ein passender Split auf die Sortierung gewählt. Der Unterschied liegt hierbei wieder in den Entscheidungskriterien. Bei der Wahl der Trenn-Achse wird für jede Achse die Menge aller Trenn-Lösungen aus den beiden bekannten Sortierungsmöglichkeiten erzeugt. Aus der Menge wird dann die Summe der Kantenlängen der Partitionen ermittelt. Als Trenn-Achse gewählt wird dann die Achse mit der geringsten Summe.
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{006_Beispiel_Trenn_Loesungen.pdf}
+		\caption{Aufzählung der Trenn-Lösungen für die waagerechte Achse. Die bunten Pfeile auf den grauen Sortierebene (links) verweisen auf die darausentstehenden Trenn-Lösungen.}
+		\label{fig:beispiel-trenn-loesungen}
+	\end{figure}
+
 \subsection{ForcedReinsert()}
 \label{sec:rstar_reinsert}
 Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzverfahrens bereits angesprochen worden. Für dieses Problem ist der Ansatz einer Neu-Verteilung von gewählten Geometrien in die Baumstruktur eine natürliche Lösung um ungeschickte Verteilungen zu korrigieren, die durch eine ungünstige Einfügereihenfolge entstanden sind. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.20)  30 SEP 2015 17:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.20)  30 SEP 2015 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1478,13 +1478,13 @@ Package logreq Info: Writing requests to 'rtree.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17653 strings out of 493109
- 291870 string characters out of 6135004
+ 17650 strings out of 493109
+ 291825 string characters out of 6135004
  790525 words of memory out of 5000000
- 20617 multiletter control sequences out of 15000+600000
+ 20614 multiletter control sequences out of 15000+600000
  70843 words of font info for 120 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 39i,11n,52p,2000b,1843s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,11n,52p,2001b,1843s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 14/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2014/texmf-dist/
@@ -1501,7 +1501,7 @@ pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2014
 /texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
-Output written on rtree.pdf (13 pages, 400148 bytes).
+Output written on rtree.pdf (13 pages, 400172 bytes).
 PDF statistics:
  380 PDF objects out of 1000 (max. 8388607)
  322 compressed objects within 4 object streams

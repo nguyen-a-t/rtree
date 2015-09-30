@@ -6,7 +6,7 @@ target/
 # tmp - files #
 *.class
 *.uml~
- 
+
 # Package Files #
 *.jar
 *.war
@@ -18,32 +18,32 @@ target/
 # Latex
 ######################
 
-*.*~ 
-*.aux 
-*.log 
-*.tmp 
-*.xref 
-*.pdx 
-*.pnd 
-*.bbl 
-*.bcf 
-*.auto 
-*.blg 
-*.dvi 
-*.glo 
-*.out 
-*.idx 
-*.ilg 
-*.ind 
-*.idv 
-*.4ct 
-*.4tc 
-*.lg 
-*.xmpi 
-*.tcp 
-*.toc 
-*.tps 
-*blx.bib 
+*.*~
+*.aux
+*.log
+*.tmp
+*.xref
+*.pdx
+*.pnd
+*.bbl
+*.bcf
+*.auto
+*.blg
+*.dvi
+*.glo
+*.out
+*.idx
+*.ilg
+*.ind
+*.idv
+*.4ct
+*.4tc
+*.lg
+*.xmpi
+*.tcp
+*.toc
+*.tps
+*blx.bib
 *.run.xml
 
 ## Build tool auxiliary files:
@@ -51,42 +51,42 @@ target/
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
- 
+
 ######################
 # Windows
 ######################
- 
+
 # Windows image file caches
-Thumbs.db 
- 
+Thumbs.db
+
 # Folder config file
 Desktop.ini
- 
+
 ######################
 # OSX
 ######################
- 
+
 .DS_Store
 .svn
- 
+
 # Thumbnails
 ._*
- 
+
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
- 
+
 ######################
 # Sublime Text
 ######################
 
 *.sublime-project
 *.sublime-workspace
- 
+
 ######################
 # Eclipse
 ######################
- 
+
 *.pydevproject
 .metadata
 bin/**
@@ -102,12 +102,12 @@ local.properties
 /src/main/resources/rebel.xml
 # External tool builders
 .externalToolBuilders/
- 
+
 # Locally stored "Eclipse launch configurations"
 *.launch
- 
+
 # CDT-specific
 .cproject
- 
+
 # PDT-specific
 .buildpath

@@ -118,7 +118,7 @@
 \section{Prinzipien eines R-Baums} % (fold)
 \label{sec:prinzipien_eines_r_baums}
 
-Der R-Baum ist eine räumliche Indexstruktur für effiziente Bereichsabfragen von Geodaten im n-dimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien der Geodaten in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschließende Rechtecke (kurz \acs{MBR}) repräsentiert. 
+Der R-Baum ist eine räumliche Indexstruktur für effiziente Bereichsabfragen von Geodaten im n-dimensionalen Raum. Der R-Baum teilt in jeder Ebene seiner Struktur die beinhalteten Geometrien der Geodaten in Partitionen auf. Die Gesamtheit der Geometrien einer Partitionen werden durch minimal umschließende Rechtecke (kurz \acs{MBR}) repräsentiert.
 Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteilt, bis die Anzahl der Geometrien den Schwellwert \acs{M} innerhalb einer Partition nicht mehr überschreitet. Der Vorteil dieser Strukturierung sorgt dafür, dass bei Bereichabfragen - zB. Was befindet sich in der Umgebung von Polygon p? - nicht zwingend alle Geometrien in der Ebene betrachtet werden müssen: Die \Cref{fig:beispiel-r-tree} stellt einen solchen R-Baum dar, wo bei einer Bereichsabfrage im besten Fall nach der ersten Entscheidungsebene die Hälfte des Geometriebestandes nicht mehr betrachtet werden muss. Wenn die \acs{MBR} einer Partition sich nicht in der Umgebung von Polygon p befindet, so werden auch alle darunterliegenden Ebenen der Partition nicht mehr behandelt. Die Verwendung von achsparallelen \acs{MBR} sorgt für effiziente Verschneidungs-Abfragen. Durch das alleinige Vergleichen der Koordinaten kann ermittelt werden, ob zwei \acs{MBR} sich schneiden oder nicht. Die Geometrien selbst werden ebenfalls durch \acs{MBR} repräsentiert, sind allerdings zur Bewahrung der Übersichtlichkeit in der \Cref{fig:beispiel-r-tree} nicht dargestellt.
 \begin{figure}[H]
 		\begin{center}
@@ -127,7 +127,7 @@ Innerhalb einer Partition werden die Geoemtrien in weitere Partitionen unterteil
 		\label{fig:beispiel-r-tree}
 		\end{center}
 	\end{figure}
-Der Befüllen eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens lässt sich in zwei Methoden beschreiben, der Author bezeichnet diese Methoden als ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absätzen beschrieben. Abhängig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmöglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen, wo durch eine andere Verteilung eine bessere Performance erzielt werden könnte. Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum zur Veranschaulichung ideal verteilt. Eine Lösung für dieses Problem wird in Kapitel \Cref{sec:rstar_reinsert} behandelt und ist Teil der Verbesserungen im R*-Baum.(Beispiel?)
+Der Befüllen eines R-Baums verläuft iterativ, wo jedes einzelne Polygon separat nach einem Schema eingefügt wird. Der komplette Prozess des Einfügens lässt sich in zwei Methoden beschreiben, der Author bezeichnet diese Methoden als ChooseSubtree() und QuadraticSplit(). Beide Methoden werden in den nächsten Absätzen beschrieben. Abhängig in welcher Reihenfolge die Polygone in den R-Baum eingesetzt werden kommt es zu verschiedenen Verteilungen innerhalb des R-Baumes. Diese unterschiedlichen Verteilungsmöglichkeiten sind nicht immer ideal und sorgen für weniger effizientere Abfragen. Eie Neuverteilung der Polygone würde zu einer potenziell besseren Performance führen. Die Polygone in der \Cref{fig:beispiel-r-tree} sind im R-Baum zur Veranschaulichung ideal verteilt. Eine Lösung für dieses Problem wird in Kapitel \Cref{sec:rstar_reinsert} behandelt und ist Teil der Verbesserungen im R*-Baum.
 
 \subsection{ChooseSubTree()}
 \label{sec:r-choose-sub}
@@ -143,7 +143,7 @@ ChooseSubTree() ist eine rekursive Methode, die zu Beginn des Einfügevorgangs a
 
 \subsection{QuadraticSplit()}
 \label{sec:r-split}
-Die QuadraticSplit() kümmert sich darum, dass überfüllte Partitionen nach dem Einfügen von Geometrien in zwei neue Partitionen aufgeteilt wird. Zuerst werden zwei Geometrien aus der Menge der Partition ermittelt, dessen \acs{MBR} den größten eindimensionalen Abstand voneinander aufweisen. In \Cref{fig:beispiel-quadratic-split} links ist das gesuchte Polygonpaar blau und grün markiert. Beide Polygone repräsentieren nun jeweils eine neue Partition. Abschließend werden die restlichen Polygone auf die beiden neuen Partitionen verteilt. Dabei kommt es zum selben Einfügeprozess, wie man es bereits von der ChooseSubTree()-Methode kennt. Die Reihenfolge, welches Polygon zuerst wieder eingefügt wird, wird durch die Differenz des potenziellen Flächenzuwachs der beiden neuen Partitionen ermittelt. Je höher die Differenz, desto früher wird das betroffene Polygon eingefügt. Da nach jedem Einfügevorgang werden die verbliebenen Polygone neu sortiert, da nach jedem Einfügen die erwähnte Differenz sich verändern kann. Wenn die Summe der verbliebenen Polygone und die Anzahl Polygone einer Partiotion den Wert \acs{m} ergibt, dann werden alle verbliebene Polygone der betroffenen Partition zugeordnet, um die Anforderung der Mindestpolygonanzahl \acs{m} zu erhalten und sich damit eine ungleichgewichtete Verteilung zwischen den beiden neuen Partitionen vermeiden lässt. Aus der Logik kann und darf die Variable \acs{m} nie größer \acs{M}/2 sein. Nach der Verteilung der Geometrien auf die beiden neuen Partitionen wird abschließend in der nächsthöheren Partitionsebene auf eine Überfüllung überprüft. Der Splitvorgang propagiert sich nach oben und wird in der nächsthöhern Ebene ebenfalls durchgeführt, wenn die Partitionsauteilung in der vorherigen Ebene zu einer Überfüllung in der jetzigen Ebene geführt hat. 
+Die QuadraticSplit() kümmert sich darum, dass überfüllte Partitionen nach dem Einfügen von Geometrien in zwei neue Partitionen aufgeteilt wird. Zuerst werden zwei Geometrien aus der Menge der Partition ermittelt, dessen \acs{MBR} den größten eindimensionalen Abstand voneinander aufweisen. In \Cref{fig:beispiel-quadratic-split} links ist das gesuchte Polygonpaar blau und grün markiert. Beide Polygone repräsentieren nun jeweils eine neue Partition. Abschließend werden die restlichen Polygone auf die beiden neuen Partitionen verteilt. Dabei kommt es zum selben Einfügeprozess, wie man es bereits von der ChooseSubTree()-Methode kennt. Die Reihenfolge, welches Polygon zuerst wieder eingefügt wird, wird durch die Differenz des potenziellen Flächenzuwachs der beiden neuen Partitionen ermittelt. Je höher die Differenz, desto früher wird das betroffene Polygon eingefügt. Da nach jedem Einfügevorgang werden die verbliebenen Polygone neu sortiert, da nach jedem Einfügen die erwähnte Differenz sich verändern kann. Wenn die Summe der verbliebenen Polygone und die Anzahl Polygone einer Partiotion den Wert \acs{m} ergibt, dann werden alle verbliebene Polygone der betroffenen Partition zugeordnet, um die Anforderung der Mindestpolygonanzahl \acs{m} zu erhalten und sich damit eine ungleichgewichtete Verteilung zwischen den beiden neuen Partitionen vermeiden lässt. Aus der Logik kann und darf die Variable \acs{m} nie größer \acs{M}/2 sein. Die beschriebene Zwangszuordnung ist ebenfalls eine Problemquelle für ungeschickte Zuordnungen. Nach der Verteilung der Geometrien auf die beiden neuen Partitionen wird abschließend in der nächsthöheren Partitionsebene auf eine Überfüllung überprüft. Der Splitvorgang propagiert sich nach oben und wird in der nächsthöhern Ebene ebenfalls durchgeführt, wenn die Partitionsauteilung in der vorherigen Ebene zu einer Überfüllung in der jetzigen Ebene geführt hat.
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{003_Beispiel_Quadratic_Split_1.pdf}
@@ -152,25 +152,26 @@ Die QuadraticSplit() kümmert sich darum, dass überfüllte Partitionen nach dem
 		\end{center}
 	\end{figure}
 
-Der Grund, wieso die Methode QuadraticSplit() heißt und nicht einfach Split(), liegt daran, dass verschiedene Umsetzungen für die Aufteilung existieren, die eine Unterschiedliche Performance aufweisen. QuadraticSplit() deutet darauf hin, dass die Methode abhängig von der Anzahl Polygone eine quadratische Laufzeit besitzt. Neben dem QuadraticSplit() existieren noch der LinearSplit(), CubicSplit() und der GreenesSplit(). Der LinearSplit() unterscheidet sich vom QuadraticSplit() nur darin, dass dieser die Sortierung der ausstehenden Polygone nur einmal am Anfang durchführt. Dies sorgt zwar für eine bessere Laufzeit, die daraus resultierenden Aufteilungen werden im Vergleich zum QuadraticSplit() allerdings nie besser sein. Der CubicSplit hingegen verspricht, dass nach dem Flächenkriterium die besten Aufteilungen generiert wird auf Kosten der längeren Bearbeitungszeit. Der QuadraticSplit() ist somit ein Kompromiss zwischen Effizienz und Qualität. Dennoch gibt es Situationen, die zu ungünstigen Verteilungen führen. Ein markantes Beispiel ist in \Cref{fig:problem-tiny-object} dargestellt: Die Kombination von kleinen bzw. schmalen Geometrien, die zwar weit entfernt von einanderliegen und doch in ihrer Lage auf identischer Anhöhe liegen, sorgen für sehr schmale, lange Partitionen, dessen \acs{MBR} mit einer sehr hohen Wahrscheilichkeit mit der anderen Partition überlappen.
+Der Grund, wieso die Methode QuadraticSplit() heißt und nicht einfach Split(), liegt daran, dass verschiedene Umsetzungen für die Aufteilung existieren, die eine Unterschiedliche Performance aufweisen. QuadraticSplit() deutet darauf hin, dass die Methode abhängig von der Anzahl Polygone eine quadratische Laufzeit besitzt. Neben dem QuadraticSplit() existieren noch der LinearSplit(), CubicSplit() und der GreenesSplit(). Der LinearSplit() unterscheidet sich vom QuadraticSplit() nur darin, dass dieser die Sortierung der ausstehenden Polygone nur einmal am Anfang durchführt. Dies sorgt zwar für eine bessere Laufzeit, die daraus resultierenden Aufteilungen werden im Vergleich zum QuadraticSplit() allerdings nie besser sein. (Aussage erwartet wahrscheinlich Beweis) Der CubicSplit hingegen verspricht, dass nach dem Flächenkriterium die besten Aufteilungen generiert wird auf Kosten der längeren Bearbeitungszeit. Der QuadraticSplit() ist somit ein Kompromiss zwischen Effizienz und Qualität. Dennoch gibt es Situationen, die zu ungünstigen Verteilungen führen. Ein markantes Beispiel ist in \Cref{fig:problem-tiny-object} dargestellt: Die Kombination von kleinen bzw. schmalen Geometrien, die zwar weit entfernt von einanderliegen und doch in ihrer Lage auf identischer Anhöhe liegen, sorgen für sehr schmale, nadelartige Partitionen, dessen \acs{MBR} mit einer sehr hohen Wahrscheilichkeit mit der anderen Partition überlappen.
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{004_Problem_Kleine_Objekte.pdf}
 		\caption{Problem der kleinen Objekte beim QuadraticSplit. Links: Durch die selbe Y-Achsen-Anhöhe zwischen den beiden schmalen Objekten entsteht ein sehr schmales \acs{MBR}. Rechts: Ergebnis des Splits auf Basis des initalen, schmalen \acs{MBR}s (\acs{M}=3, \acs{m}=2)}
 		\label{fig:problem-tiny-object}
 		\end{center}
-	\end{figure} 
+	\end{figure}
 
 \subsection{GreenesSplit()}
-In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bekannten Split-Methoden vorgestellt. Die Idee besteht darin, die Polygone nach der jeweiligen Achse zu sortieren, in der die größte Ausbreitung ermittelt wird. Auf Basis dieser Sortierung hat man nun eine Reihe Splits, aus dem man dann den Favoriten zu ermitteln hat und übernimmt. Siehe: \Cref{fig:beispiel-greenes-split}
+\label{sec:grennes_split}
+In einer der wissenschaftlichen Veröffentlichungen von "Greene" wird ein alternatives Verfahren für die bisher bekannten Split-Methoden vorgestellt. Die Idee besteht darin, die Polygone nach der jeweiligen Achse zu sortieren, in der die größte Ausbreitung ermittelt wird. Auf Basis dieser Sortierung hat man nun eine Reihe von möglichen Trenn-Lösungen, aus denen dann der Algorithmus den Favoriten ermittelt und übernimmt. Das Ergebniss in \Cref{fig:beispiel-greenes-split} rechts stellt den Favoriten dar mit der gerinsten Flächensumme. Man beachte, dass es zwei Möglichkeiten gibt, die Polygone nach einer Achse zu sortieren, nämlich nach ihrem Minimal- oder ihrem Maximalwert. In der \Cref{fig:beispiel-greenes-split} wird nur die Sortierung nach dem Minimalwert dargestellt. Bei der Wahl des Favoriten müssen die Trenn-Lösungen beider Sortierungen betrachtet werden. Neben dem besagten Flächenkriterium besitzt der GreenesSplit() im Vergleich zu den anderen Split-Algorithmen ein zusätzliches, geometrisches Kriterium: die Verteilung der Geometrien im Raum und die daraus ermittelte Trenn-Achse - wobei es auch hier zu Situationen kommen kann, in der sich der GreenesSplit() für die "falsche" Achse entscheidet. Es existieren allerdings noch weitere Kriterien, die im nächsten Kapitel aufgezählt werden, womit man die Verteilung im R-Baum optimieren könnte.
 
 \begin{figure}[H]
 		\begin{center}
 		\includegraphics[width=1.0\textwidth ]{005_Beispiel_Greenes_Split.pdf}
-		\caption{Beispiel für GreenesSplit. Links: Rechts:(\acs{M}=3, \acs{m}=2)}
+		\caption{Beispiel für GreenesSplit. Links: Sortierung der Geometrien nach der gewählten Trenn-Achse. Rechts: Resultierende Ergebnis aus der Sortierung. (\acs{M}=3, \acs{m}=2)}
 		\label{fig:beispiel-greenes-split}
 		\end{center}
-	\end{figure} 
+	\end{figure}
 
 % section prinzipien_eines_r_baums (end)
 
@@ -191,7 +192,7 @@ In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bek
 	\label{ssub:ueberlappung_minimieren}
 
 	Die Überlappung der umschließenden Rechtecke soll minimiert werden. Dadurch müssen ebenfalls weniger Pfade im Baum traversiert werden. Liegt ein angefragter Punkt beispielsweise in einer Region, in der sich viele Rechtecke Überschneiden, müssen alle Möglichkeiten weiter verfolgt werden, was zu erhöhtem Rechenaufwand führt.
-	
+
 	% subsubsection ueberlappung_minimieren (end)
 
 	\subsubsection{Summe der Kantenlänge minimieren} % (fold)
@@ -199,38 +200,53 @@ In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bek
 
 	Die Summe der Kantenlänge der Verzeichnisrechtecke (\emph{\enquote{margin}}) soll möglichst klein sein. Quadrate werden also bevorzugt. Da Quadrate auf den jeweils höheren Ebenen im Baum besser zusammengefasst werden können, reduziert sich so die benötigte Fläche.
 	Außerdem profitieren Anfragen mit großen, quadratischen Elementen von dieser Optimierung. \citep[vgl.][323]{Beckmann:1990}
-	
+
 	% subsubsection kantenlaenge (end)
 
 	\subsubsection{Speichernutzung maximieren} % (fold)
 	\label{ssub:speichernutzung_maximieren}
 
 	Eine geringe Höhe des Baumes wirkt sich positiv auf die Kosten einer Abfrage aus. Das kann durch eine möglichst gleichmaßige Verteilung der Blattknoten erreicht werden. Insbesondere für große Abfragerechtecke ist dies relevant, da hier, auch abgesehen von den ersten drei genannten Optimierungen, mehrere Pfade traversiert werden müssen. \citep[vgl.][323-324]{Beckmann:1990}
-	
+
 	% subsubsection speichernutzung_maximieren (end)
 
 	\subsubsection{Wechselwirkungen} % (fold)
 	\label{ssub:wechselwirkungen}
 
 	Um die Flächenausnutzung zu maximieren und die Überlappung zu minimieren, bedarf es einer größeren Freiheit bei der Wahl der Formen und der Anzahl an Rechtecken pro Knoten. Die Kriterien stehen also in Konkurrenz mit einer geringen Kantenlänge und hohen Speicherausnutzung. Auf der anderen Seite können quadratischere Rechtecke besser zusammengefasst werden, was sich wiederum positiv auf die Speichernutzung auswirkt. \citep[vgl.][323-324]{Beckmann:1990}
-	
+
 	% subsubsection wechselwirkungen (end)
 
 % section optimierungskriterien (end)
 
 \section{Der R*-Baum} % (fold)
 \label{sec:rstar_tree}
-In der bisher vorgestellten R-Baum-Variante war das einzigste Optimierungskriterium die Minierung Flächeninhalte der Partitionen. In \Cref{sec:optimierungskriterien} sind weitere potenzielle Kriterien gelistet, die während des Einfüge-Verfahrens berücksichtigt werden könnten. Diese besagten Kriterien sind in den Methoden vom R*-Baum mit berücksichtigt und sind in den nächsten Abschnitten erklärt.
+
+In der bisher vorgestellten R-Baum-Variante war das einzigste Optimierungskriterium die Minierung der Flächeninhalte innerhalb der Partitionen. In \Cref{sec:optimierungskriterien} sind weitere potenzielle Kriterien gelistet, die während des Einfüge-Verfahrens berücksichtigt werden könnten. Diese besagten Kriterien wurden von den Authoren auf verschiedenste Weise kombiniert, untersucht und evaluiert. Dabei entstand aus den untersuchten Kombinationen die Methoden für den verbesserten R*-Baum, die auf Hinblick der Query-Performance die besten Ergebnisse liefern. \citep[vgl.][325]{Kriegel:2008}
 
 \subsection{ChooseSubTree()}
-Die ChooseSubTree()-Methode vom R*-Baum unterscheidet sich nicht erheblich von der bisher bekannten R-Baum-Variante. Der Unterschied zwischen den beiden rekursiven Methoden befindet sich im Entscheidungskriterium in der letzten Partitionsebene. Hier wird anstelle des Flächenkriteriums zuerst das Überlappungskriterium berücksichtigt. Der Grund, wieso nicht in allen Partitionsebenen nach dem Überlappungskriterium berücksichtigt werden, ist der Rechenaufwand, der für das Überpfüfen von Überlappungen benötigt wird. Der Aufwand ist quadratisch in Relation zu den vorhandenen Partitionen, zwischen denen gewählt werden muss.
+Die ChooseSubTree()-Methode vom R*-Baum unterscheidet sich nicht erheblich von der bisher bekannten R-Baum-Variante. Der Unterschied zwischen den beiden rekursiven Methoden befindet sich im Entscheidungskriterium in der letzten Partitionsebene. Hier wird anstelle des Flächenkriteriums zuerst das Überlappungskriterium berücksichtigt. Der Grund, wieso nicht in allen Partitionsebenen nach dem Überlappungskriterium berücksichtigt werden, ist der Rechenaufwand, der für das Überpfüfen von Überlappungen benötigt wird. Der Aufwand ist quadratisch in Relation zu den vorhandenen Partitionen, zwischen denen gewählt werden muss. Im Falle einer hohen Anzahl von zu vergleichenden Partitionen steigt der Rechenaufwand erheblich. Für dieses Problem schlagen die Autoren vor, dass eine Vorauswahl der Partitionen stattfindet, in der nur die n-nächsten Partition als Kandidaten für die einzufügende Geometrie in Frage kommen. Determiniert werden diese Kandidaten durch das bisher bekannte Flächenkriterium. Anschließend wird nur "ungefähr" das Überlappungskriterium ermittelt, da hierfür nur die Überlappung zwischen den Kandidaten betrachtet wird.
 
 \subsection{Split()}
-Die Split()-Methode ist ...
+Die Split()-Methode besitzt die selbe Herangehensweise, wie der bereits erwähnte GreenesSplit() in \Cref{sec:grennes_split}. In beiden Methoden wird eine Trenn-Achse gewählt, die Partitionen sortiert und anschließend ein passender Split aus den Sortierungen gewählt. Der Unterschied liegt hierbei wieder in den Entscheidungskriterien. Bei der Wahl der Trenn-Achse wird für jede Achse die Menge aller Trenn-Lösungen aus den beiden bekannten Sortierungsmöglichkeiten erzeugt (siehe \Cref{fig:beispiel-trenn-loesungen}). Aus der Menge wird dann die Summe der Kantenlängen der Partitionen ermittelt. Als Trenn-Achse gewählt wird dann die Achse mit der geringsten Summe. Anschließend wird aus der gegebenen Lösungsmenge der Favorit ausgewählt, welche die geringste Überlappung zwischen den neuen Partitionen erzeugt. Ergibt sich durch die Betrachtung der Überlappung kein Favorit, wird bei einem Gleichstand die Lösung mit der geringeren Flächensumme ausgewählt. Das Problem der Überfüllung kann wie im R-Baum in die nächsthöhere Partitionsebene hochpropagieren, wo die Split()-Methode dann ggf. erneut ausgeführt wird.
+\newline
+Die Autoren haben neben den geometrischen Entscheidungskriterien auch mit Parametrisierung der Variablen \acs{M} und \acs{m} experimentiert und sind zu dem Ergebnis gekommen, dass die besten Splits entstehen, wenn \acs{m} ungefähr 40 Prozent von \acs{M} entspricht. \citep[vgl.][325]{Kriegel:2008}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{006_Beispiel_Trenn_Loesungen.pdf}
+		\caption{Aufzählung der Trenn-Lösungen für die waagerechte Achse. Die bunten Pfeile auf den grauen Sortierebene (links) verweisen auf die darausentstehenden Trenn-Lösungen. (\acs{M}=5, \acs{m}=2)}
+		\label{fig:beispiel-trenn-loesungen}
+	\end{figure}
 
 \subsection{ForcedReinsert()}
 \label{sec:rstar_reinsert}
-Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzverfahrens bereits angesprochen worden. Für dieses Problem ist der Ansatz einer Neu-Verteilung von gewählten Geometrien in die Baumstruktur eine natürliche Lösung um ungeschickte Verteilungen zu korrigieren, die durch eine ungünstige Einfügereihenfolge entstanden sind.
+
+Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzverfahrens bereits angesprochen worden. Für dieses Problem ist der Ansatz einer Neu-Verteilung von gewählten Geometrien in die Baumstruktur eine natürliche Lösung um ungeschickte Verteilungen zu korrigieren, die durch eine ungünstige Einfügereihenfolge entstanden sind. Die Autoren bestätigen ihre Annahme durch einen Test, indem sie aus einem bestehenden, befüllten R-Baum die hälfte der Datensätze löschen und wieder in den Baum einfügen. Die daraus entstandene Struktur innerhalb vom R-Baum führte zu einer 50 Prozent verbesserten Query-Performance im Vergleich zur vorherigen Struktur \citep[vgl.][325]{Kriegel:2008}. Die ReInsert()-Methode wird nach jedem Einfügeprozess aufgerufen, sobald eine Partition überfüllt ist. Wenn die Methode das Überfüllungs-Problem nicht lösen konnte, wird erst dann die Split()-Funktion aufgerufen. Der Grund hierfür ist die Ambition solang wie möglich einen Split hinauszuzögern, welches ansonsten zu einer Propagierung des Überfüllungsproblems führen kann und dadurch  die Baum-Struktur unnötig erhöht werden kann.
+\newline
+In der ReInsert()-Methode werden die beinhalteten \acs{MBR} der überfüllten Partition nach ihrer Zentralität sortiert. Die Zentralität definiert sich hier durch den Abstand zwischen dem Centroiden von dem \acs{MBR} und dem Centroiden von der überfüllten Partition. Basierend auf der Sortierung werden die \acs{p}-äußersten \acs{MBR} aus der Partition entfernt - dabei kann es sich sowohl um Geometrien, als auch um ganze Unter-Partitionen handeln. Anschließend werden die entfernten Objekte nach ihrer Sortierung entweder erst die Äußersten ("far reinsert") oder die inneren \acs{MBR} ("close reinsert") in die Struktur wieder eingefügt.
+\newline
+Durch verschiedene Tests empfehlen die Autoren für die Parametrisierung folgende Werte: Die Variable \acs{p} soll ungefähr 30 Prozent des beinhalteten Bestandes einer überfüllten Partition entsprechen und bei der Wiedereinfügereihenfolge sollte die "close reinsert"-Variante bevorzugt werden.
 
 % section rstar_tree (end)
 
@@ -290,7 +306,7 @@ Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzver
 	\Cref{tab:benchmark-queries} und \Cref{tab:benchmark-data} zeigen die, auf unterschiedliche Art aggregierten, Testergebnisse. Die bessere Performance des R*-Baums ist für alle verschiedenen Anfragen und Testdaten klar ersichtlich. Anzumerken ist, dass lediglich zwei dimensionale Daten verwendet wurden \citep[vgl.][328]{Beckmann:1990}. Das entspricht in den meisten Fällen den Anforderungen an Geodatenbanken. Für andere Anwendungsfälle wären weitere Tests notwendig.
 
 	Interessant ist, dass trotz der Verwendung von Forced Reinsert der R*-Baum auch beim Einfügen von neuen Elementen schneller ist als herkömmliche Varianten.
-	
+
 	% subsubsection benchmarks (end)
 
 	\subsubsection{Weiterentwicklungen} % (fold)
@@ -298,7 +314,7 @@ Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzver
 
 	Die Effizienz des R*-Baums nimmt ab fünf Dimensionen rapide ab \citep[vgl.][29]{Kriegel:1996}. Um auch höher dimensionalen Daten gerecht zu werden, existieren daher zahlreiche Weiterentwicklungen. Dazu gehört, wie eingangs erwähnt, der X-Baum, welcher darauf ausgelegt ist auch in höheren Dimensionen Überlappungen zu vermeiden \citep[vgl.][]{Kriegel:1996}.
 	Andere Indizes bilden Näherungen der tatsächlichen Daten und führen Anfragen zunächst auf diesen aus (\emph{\enquote{Vector Approximation}}, siehe \cite{Gibas:2008} oder \cite{Daoudi:2008}). So wird der Zugriff auf Daten mit über 100 Dimensionen vergleichsweise effizient ermöglicht \citep[vgl.][]{Daoudi:2008}.
-	
+
 	% subsubsection weiterentwicklungen (end)
 
 % section fazit (end)
@@ -319,6 +335,7 @@ Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzver
 		\begin{acronym}[length]
 			\acro{m}{Variable: minimale Anzahl der Geometrien in einer Partition}
 			\acro{M}{Variable: maximale Anzahl der Geometrien in einer Partition}
+			\acro{p}{Variable: Anzahl der zu entfernenden Geometrien/Partitionen in der ReInsert()-Methode}
 			\acro{MBR}{Minimum bounding Rectangle}
 		  \acro{SAM}{Spatial access methods}
 		  \acro{PAM}{Point access methods}

@@ -240,9 +240,11 @@ Die Autoren haben neben den geometrischen Entscheidungskriterien auch mit Parame
 
 \subsection{ForcedReinsert()}
 \label{sec:rstar_reinsert}
-Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzverfahrens bereits angesprochen worden. Für dieses Problem ist der Ansatz einer Neu-Verteilung von gewählten Geometrien in die Baumstruktur eine natürliche Lösung um ungeschickte Verteilungen zu korrigieren, die durch eine ungünstige Einfügereihenfolge entstanden sind. Die Autoren bestätigen ihre Annahme durch einen Test, indem sie aus einem bestehenden, befüllten R-Baum die hälfte der Datensätze löschen und wieder in den Baum einfügen. Die daraus entstandene Struktur innerhalb vom R-Baum führte zu einer 50 Prozent verbesserten Query-Performance im Vergleich zur vorherigen Struktur. Die ReInsert()-Methode wird nach jedem Einfügeprozess aufgerufen, sobald eine Partition überfüllt ist. Wenn die Methode das Überfüllungs-Problem nicht lösen konnte, wird erst dann die Split()-Funktion aufgerufen. 
+Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzverfahrens bereits angesprochen worden. Für dieses Problem ist der Ansatz einer Neu-Verteilung von gewählten Geometrien in die Baumstruktur eine natürliche Lösung um ungeschickte Verteilungen zu korrigieren, die durch eine ungünstige Einfügereihenfolge entstanden sind. Die Autoren bestätigen ihre Annahme durch einen Test, indem sie aus einem bestehenden, befüllten R-Baum die hälfte der Datensätze löschen und wieder in den Baum einfügen. Die daraus entstandene Struktur innerhalb vom R-Baum führte zu einer 50 Prozent verbesserten Query-Performance im Vergleich zur vorherigen Struktur \citep[vgl.][325]{Kriegel:2008}. Die ReInsert()-Methode wird nach jedem Einfügeprozess aufgerufen, sobald eine Partition überfüllt ist. Wenn die Methode das Überfüllungs-Problem nicht lösen konnte, wird erst dann die Split()-Funktion aufgerufen. Der Grund hierfür ist die Ambition solang wie möglich einen Split hinauszuzögern, welches ansonsten zu einer Propagierung des Überfüllungsproblems führen kann und dadurch  die Baum-Struktur unnötig erhöht werden kann. 
 \newline
-letzter Absatz mit passender Beschreibung + Abbildung
+In der ReInsert()-Methode werden die beinhalteten \acs{MBR} der überfüllten Partition nach ihrer Zentralität sortiert. Die Zentralität definiert sich hier durch den Abstand zwischen dem Centroiden von dem \acs{MBR} und dem Centroiden von der überfüllten Partition. Basierend auf der Sortierung werden die \acs{p}-äußersten \ace{MBR} aus der Partition entfernt - dabei kann es sich sowohl um Geometrien, als auch um ganze Unter-Partitionen handeln. Anschließend werden die entfernten Objekte nach ihrer Sortierung entweder erst die Äußersten ("far reinsert") oder die inneren \acs{MBR} ("close reinsert") in die Struktur wieder eingefügt.
+\newline
+Durch verschiedene Tests empfehlen die Autoren für die Parametrisierung folgende Werte: Die Variable \acs{p} soll ungefähr 30 Prozent des beinhalteten Bestandes einer überfüllten Partition entsprechen und bei der Wiedereinfügereihenfolge sollte die "close reinsert"-Variante bevorzugt werden.
 
 % section rstar_tree (end)
 
@@ -331,6 +333,7 @@ letzter Absatz mit passender Beschreibung + Abbildung
 		\begin{acronym}[length]
 			\acro{m}{Variable: minimale Anzahl der Geometrien in einer Partition}
 			\acro{M}{Variable: maximale Anzahl der Geometrien in einer Partition}
+			\acro{p}{Variable: Anzahl der zu entfernenden Geometrien/Partitionen in der ReInsert()-Methode}
 			\acro{MBR}{Minimum bounding Rectangle}
 		  \acro{SAM}{Spatial access methods}
 		  \acro{PAM}{Point access methods}

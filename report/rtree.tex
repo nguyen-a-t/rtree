@@ -12,19 +12,19 @@
 
 \usepackage[english, ngerman]{babel}
 \usepackage[utf8]{inputenc}			    % for working umlaute
-\usepackage[T1]{fontenc}            % wichtig fÃür Trennung von Wörtern mit Umlauten
+\usepackage[T1]{fontenc}            % wichtig für Trennung von Wörtern mit Umlauten
 \usepackage{microtype}						  % verbesserter Randausgleich
 \usepackage{pdfpages}
-\usepackage{lmodern}								%fuer schoenen Text in pdf-Abbildungen
+\usepackage{lmodern}								% fuer schoenen Text in pdf-Abbildungen
 
 \usepackage{array}
-\usepackage{tabularx}								% for more convinient tables
+\usepackage{tabularx}								% for more convenient tables
 
 \usepackage{quoting}
 \usepackage[
 	babel,
 	german=quotes,
-	threshold=2,										% two lines ore more triggers a blockquote
+	threshold=2,											% two lines ore more triggers a blockquote
 	thresholdtype=lines
 ]{csquotes}
 % \SetBlockEnvironment{quoting}			% real block quotes
@@ -223,14 +223,14 @@ In einem Paper von "Greenes" wird ein alternatives Verfahren für die bisher bek
 In der bisher vorgestellten R-Baum-Variante war das einzigste Optimierungskriterium die Minierung Flächeninhalte der Partitionen. In \Cref{sec:optimierungskriterien} sind weitere potenzielle Kriterien gelistet, die während des Einfüge-Verfahrens berücksichtigt werden könnten. Diese besagten Kriterien sind in den Methoden vom R*-Baum mit berücksichtigt und sind in den nächsten Abschnitten erklärt.
 
 \subsection{ChooseSubTree()}
-Die ChooseSubTree()-Methode vom R*-Baum unterscheidet sich nicht erheblich von der bisher bekannten R-Baum-Variante. Der Unterschied zwischen den beiden rekursiven Methoden befindet sich im Entscheidungskriterium in der letzten Partitionsebene. Hier wird anstelle des Flächenkriteriums zuerst das Überlappungskriterium berücksichtigt. Der Grund, wieso nicht in allen Partitionsebenen nach dem Überlappungskriterium berücksichtigt werden, ist der Rechenaufwand, der für das Überpfüfen von Überlappungen benötigt wird. Der Aufwand ist quadratisch in Relation zu den vorhandenen Partitionen, zwischen denen gewählt werden muss. 
+Die ChooseSubTree()-Methode vom R*-Baum unterscheidet sich nicht erheblich von der bisher bekannten R-Baum-Variante. Der Unterschied zwischen den beiden rekursiven Methoden befindet sich im Entscheidungskriterium in der letzten Partitionsebene. Hier wird anstelle des Flächenkriteriums zuerst das Überlappungskriterium berücksichtigt. Der Grund, wieso nicht in allen Partitionsebenen nach dem Überlappungskriterium berücksichtigt werden, ist der Rechenaufwand, der für das Überpfüfen von Überlappungen benötigt wird. Der Aufwand ist quadratisch in Relation zu den vorhandenen Partitionen, zwischen denen gewählt werden muss.
 
 \subsection{Split()}
 Die Split()-Methode ist ...
 
 \subsection{ForcedReinsert()}
 \label{sec:rstar_reinsert}
-Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzverfahrens bereits angesprochen worden. Für dieses Problem ist der Ansatz einer Neu-Verteilung von gewählten Geometrien in die Baumstruktur eine natürliche Lösung um ungeschickte Verteilungen zu korrigieren, die durch eine ungünstige Einfügereihenfolge entstanden sind. 
+Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzverfahrens bereits angesprochen worden. Für dieses Problem ist der Ansatz einer Neu-Verteilung von gewählten Geometrien in die Baumstruktur eine natürliche Lösung um ungeschickte Verteilungen zu korrigieren, die durch eine ungünstige Einfügereihenfolge entstanden sind.
 
 % section rstar_tree (end)
 
@@ -287,7 +287,7 @@ Im \Cref{sec:prinzipien_eines_r_baums} ist das Problem des iterativen Einsetzver
 	\end{tabularx}
 	\end{table}
 
-	\Cref{tab:benchmark-queries} und \Cref{tab:benchmark-data} zeigen die, auf unterschiedliche Art aggregierten, Testergebnisse. Die bessere Performance des R*-Baums ist für alle verschiedenen Anfragen und Testdaten klar ersichtlich. Anzumerken ist, dass lediglich zwei dimensionale Daten verwendet wurden \citep[328][vgl.]{Beckmann:1990}. Das entspricht in den meisten Fällen den Anforderungen an Geodatenbanken. Für andere Anwendungsfälle wären weitere Tests notwendig.
+	\Cref{tab:benchmark-queries} und \Cref{tab:benchmark-data} zeigen die, auf unterschiedliche Art aggregierten, Testergebnisse. Die bessere Performance des R*-Baums ist für alle verschiedenen Anfragen und Testdaten klar ersichtlich. Anzumerken ist, dass lediglich zwei dimensionale Daten verwendet wurden \citep[vgl.][328]{Beckmann:1990}. Das entspricht in den meisten Fällen den Anforderungen an Geodatenbanken. Für andere Anwendungsfälle wären weitere Tests notwendig.
 
 	Interessant ist, dass trotz der Verwendung von Forced Reinsert der R*-Baum auch beim Einfügen von neuen Elementen schneller ist als herkömmliche Varianten.
 	
